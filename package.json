@@ -51,5 +51,8 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor protractor.conf.js"
-  }
+  },
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }

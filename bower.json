@@ -1,30 +1,19 @@
 {
-  "name": "app",
+  "name": "myapp",
   "private": true,
   "version": "0.0.0",
   "authors": [
-    "leob <leob@users.noreply.github.com>"
+    "shitao <shitao@servyou.com.cn>"
   ],
   "dependencies": {
-    "angular-animate": "1.4.3",
-    "angular-elastic": "~2.4.2",
-    "angular-messages": "1.4.3",
-    "angular-resource": "1.4.3",
-    "angular-sanitize": "1.4.3",
-    "angular-translate": "~2.7.2",
-    "angular-translate-loader-static-files": "~2.7.2",
-    "angular-ui-router": "0.2.13",
-    "angularfire": "~1.1.2",
-    "firebase": "~2.2.9",
-    "ionic-content-banner": "~1.0.1",
-    "ngCordova": "~0.1.20-alpha",
-    "parse": "~1.4.2",
-    "fus-messages": "~0.0.2"
+    "ion-image-lazy-load": "*",
+    "ngCordova": "*",
+    "angular-underscore-module": "*",
+    "angular-moment": "*",
+    "angular-md5": "*"
   },
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.0",
-    "ionic-service-core": "~0.1.7",
-    "ionic-service-analytics": "~0.1.2",
-    "angular-mocks": "1.4.3"
+    "ionic": "driftyco/ionic-bower#1.2.0",
+    "ionic-platform-web-client": "~0.2.1"
   }
 }

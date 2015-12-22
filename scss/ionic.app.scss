@@ -15,15 +15,13 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-// Import app variables (NEEDS TO GO BEFORE THE IONIC IMPORT)
-@import "scss/app/variables";
-
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
-// Include all of Ionic - NOTE: we include a CUSTOMIZED version of the Ionic master SCSS file here. See comments inside
-// the "ionic-customized.scss" file for more info.
-@import "ionic-customized";
+$gray:                          #ddd !default;
+$light-gray:                    #f5f5f5 !default;
 
-// Import app styles
-@import "scss/app/app";
+// Include all of Ionic
+@import "src/lib/ionic/scss/ionic";
+
+@import "gswf";

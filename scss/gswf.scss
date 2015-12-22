@@ -1,0 +1,245 @@
+/**
+ * Created by jimshi0912 on 15/11/5.
+ */
+.platform-ios.platform-cordova {
+
+  &:not(.fullscreen) {
+
+    .home-view .hero-box {
+      margin-top: $bar-height + $ios-statusbar-height;
+    }
+
+    .msg-box{
+      ion-content{
+        margin-top: $bar-height + $ios-statusbar-height;;
+      }
+    }
+
+  }
+}
+.none-border{
+  border: none;
+}
+.pane, .view {
+  background-color: $light-gray;
+}
+.item,
+.item-complex .item-content,
+.item-radio .item-content{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 14px;
+}
+.item-divider{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 0;
+}
+.item-input{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.item-complex, a.item.item-complex,
+button.item.item-complex{
+  padding: 0;
+}
+.item-icon-left .icon,
+.item-icon-right .icon{
+  font-size: 26px;
+  color: #999;
+}
+.item-toggle .toggle{
+  top: 7px;
+}
+.item-note{
+  text-align: right;
+}
+
+ion-content{
+  .list{
+    > .item:first-child{
+      border-top: none;
+    }
+  }
+}
+
+.bar .button.back-button,
+.bar button.back-button{
+  font-size: 14px;
+  padding-left: 5px;
+}
+.bar-dark .button.button-clear{
+  font-size: 14px;
+}
+.bar-stable .button.button-clear{
+  font-size: 14px;
+}
+.bar-dark .item-input-wrapper{
+  background-color: $gray;
+
+  .placeholder-icon:first-child{
+    padding-right: 0;
+    font-size: 16px;
+  }
+}
+
+
+.avatar {
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  background-color: $positive;
+  color: $light;
+  font-weight: 600;
+  margin-right: 10px;
+
+  &.avatar-bg {
+    width: 52px;
+    height: 52px;
+    line-height: 52px;
+  }
+}
+.item-avatar,
+.item-avatar > .item-content{
+  padding-left: 82px;
+  min-height: 68px;
+}
+
+.item-avatar > .avatar,
+.item-avatar > .item-content > .avatar{
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.menu-box {
+  background-color: $stable;
+
+  .item {
+    border: none;
+    background-color: transparent;
+
+    > a{
+      background-color: transparent;
+    }
+  }
+  .item-complex.item-icon-left .item-content {
+    padding-left: 60px;
+    font-size: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .item-icon-left .icon {
+    left: 20px;
+    color: #aaa;
+    font-size: 20px;
+  }
+  .list {
+    border-top: 1px solid $gray;
+  }
+  .profile-list{
+    .list{
+      border-top: none;
+    }
+  }
+  .profile-item {
+    h3 {
+      margin-top: 8px;
+    }
+  }
+}
+.msg-box{
+  background-color: $light-gray;
+  .item{
+    border-color: $gray;
+  }
+
+  ion-content{
+    margin-top: $bar-height;
+  }
+}
+
+.bar.bar-dark {
+  background-color: #444;
+  border-bottom: none;
+
+  .button.button-clear,
+  .title {
+    color: $light;
+  }
+}
+
+.home-view {
+
+  .hero-box {
+    background-color: #444;
+    margin-top: 44px;
+    height: 122px;
+
+    .row > .col {
+      position: relative;
+    }
+  }
+
+  .hero-tap-box {
+    color: #fff;
+    width: 100%;
+    font-size: 48px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    label {
+      margin-top: 5px;
+      display: block;
+    }
+  }
+
+  ion-content {
+    margin-top: 121px;
+  }
+}
+
+.grid-box {
+  clear: both;
+  height: 275px;
+  overflow: hidden;
+  margin-left: -1px;
+}
+
+app-thumb {
+  height: 92px;
+  border-left: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+  background-color: #fff;
+  width: 25%;
+  float: left;
+
+  > .button {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    :after {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    > .icon:before {
+      font-size: 30px;
+    }
+
+    > label {
+      display: block;
+      font-size: 12px;
+    }
+  }
+}
+
+.search-view{
+  background-color: $light;
+}
+.scan-view{
+  background-color: #000;
+}

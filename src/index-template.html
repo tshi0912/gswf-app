@@ -4,27 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-  <!--
-  Customize this policy to fit your own app's needs. For more guidance, see:
-      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-  Some notes:
-      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        Enable inline JS: add 'unsafe-inline' to default-src
-    http://stackoverflow.com/questions/29814717/getting-error-to-setup-ngcordova-firsttime
-    https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-    http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application
-    http://forum.ionicframework.com/t/ionic-google-maps-referenceerror-google-is-not-defined/22550/3
-
-    NOTE: this article uses a different meta-tag:
-        http://www.gajotres.net/using-cordova-geoloacation-api-with-google-maps-in-ionic-framework/
-    NAMELY, as follows:
-        <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
-  -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' * data: gap: https://ssl.gstatic.com https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-
   <title></title>
 
   <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
@@ -34,7 +13,7 @@
 </head>
 
 <!-- NOTE: "ng-strict-di" will be added to the body tag during a production build (see gulp.js) -->
-<body ng-app="app" ng-controller="ApplicationCtrl as main">    <!-- ApplicationCtrl: global/default controller -->
+<body ng-app="gswf">
   <!--
     The views will be rendered in the <ion-nav-view> directive below
   -->
@@ -49,43 +28,17 @@
   <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
   <!-- build:ionic -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
   <!-- endbuild -->
 
-  <!-- Took out the ionic.io libs because of Firebase issues as described here: -->
-
-  <!--    http://forum.ionicframework.com/t/firebase-timeouts-slow-responses/31657/10 -->
-  <!--    http://forum.ionicframework.com/t/ionic-firebase-stuck-loading-forever/31146/12- ->
-
-  <!-- **AND** also removed them because these libs are now obsolete - Ionic.io services should use the new "Ionic -->
-  <!-- Web Client" library - but I'm leaving this out of the starter app in order to keep it lean and not burden -->
-  <!-- with too many dependencies which maybe not everyone needs/wants -->
-
-  <!--<script src="lib/ionic-service-core/ionic-core.js"></script>-->
-  <!--<script src="lib/ionic-service-analytics/ionic-analytics.js"></script>-->
-
-  <!-- Parse.com integration, remove this if you only want Firebase ... -->
-  <script src="lib/parse/parse.min.js"></script>
-
-  <!-- Firebase integration, remove this if you only want Parse ... -->
-  <script src="lib/firebase/firebase.js"></script>
-  <script src="lib/angularfire/dist/angularfire.min.js"></script>
-
-  <!-- Form validation with ng-messages and fusion-messages -->
-  <script src="lib/angular-resource/angular-resource.min.js"></script>
-  <script src="lib/angular-messages/angular-messages.min.js"></script>
-  <script src="lib/fus-messages/dist/fus-messages.js"></script>
-
-  <script src="lib/angular-translate/angular-translate.min.js"></script>
-  <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-
-  <script src="lib/ionic-content-banner/dist/ionic.content.banner.min.js"></script>
-
-  <script src="js/lib/ng-img-crop-customized/ng-img-crop.min.js"></script>
-
-  <!-- ngCordova - IMPORTANT : SHOULD be after ionic bundle and before cordova.js -->
-  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
-  <!-- Cordova script (this will be a 404 during development) -->
-  <!--<script src="cordova.js"></script>-->
+  <script src="lib/underscore/underscore.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/moment/locale/zh-cn.js"></script>
+  <script src="lib/angular-underscore-module/angular-underscore-module.js"></script>
+  <script src="lib/angular-moment/angular-moment.js"></script>
+  <script src="lib/angular-md5/angular-md5.js"></script>
+  <script src="js/lib/angular-ios9-uiwebview.patch.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
   <script src="js/modules.js"></script>
 
@@ -98,8 +51,7 @@
 
   <!-- scripts belonging to the root "app" module are placed here -->
   <script src="js/app/app.js"></script>
-  <script src="js/app/application.ctrl.js"></script>
-  <script src="js/app/application.service.js"></script>
+  <script src="js/app/boot.js"></script>
   <!-- endbuild -->
 
   <script src="js/config/config.js"></script>

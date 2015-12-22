@@ -76,20 +76,13 @@ var paths = {
   ionicfonts: ['./src/lib/ionic/fonts/*'],
   lib: [
     './src/lib/ionic/js/' + files.ionicbundle,
-    './src/lib/parse/parse.min.js',
-    './src/lib/angular-resource/angular-resource.min.js',
-    './src/lib/angular-messages/angular-messages.min.js',
-    './src/lib/angular-elastic/elastic.js',
+    './src/lib/ion-image-lazy-load/ionic-image-lazy-load.js',
+    './src/lib/underscore/underscore.js',
+    './src/lib/moment/moment.js',
+    './src/lib/angular-md5/angular-md5.js',
+    './src/lib/angular-moment/angular-moment.js',
+    './src/lib/angular-underscore-module/angular-underscore-module.js',
     './src/lib/ngCordova/dist/ng-cordova.min.js',
-    //'./src/lib/ionic-service-core/ionic-core.js',             /* Ionic.io libraries, to do: minify */
-    //'./src/lib/ionic-service-analytics/ionic-analytics.js',   /* Ionic.io libraries, to do: minify */
-    './src/lib/ionic-content-banner/dist/ionic.content.banner.min.js',
-    './src/lib/angular-translate/angular-translate.min.js',
-    './src/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
-    './src/lib/fus-messages/dist/fus-messages.js',
-    './src/lib/firebase/firebase.js',
-    './src/lib/angularfire/dist/angularfire.min.js',
-    './src/js/lib/ng-img-crop-customized/ng-img-crop.min.js'
     ],
   dist: ['./www']
 };

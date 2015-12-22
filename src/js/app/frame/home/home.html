@@ -1,0 +1,29 @@
+<ion-view view-title="个人纳税服务平台" class="home-view" nav-bar-class="none-border">
+  <div class="hero-box">
+    <div class="row">
+      <div class="col">
+        <div class="hero-tap-box" ng-click="vm.openSearch();">
+          <i class="ion-ios-search-strong"></i>
+          <label>搜一搜</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="hero-tap-box" ng-click="vm.openScan();">
+          <i class="ion-android-expand"></i>
+          <label>扫一扫</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="hero-tap-box">
+          <i class="ion-android-add"></i>
+          <label>新建申请</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-content>
+    <div class="grid-box">
+      <app-thumb ng-repeat="app in vm.apps" app="app"></app-thumb>
+    </div>
+  </ion-content>
+</ion-view>
