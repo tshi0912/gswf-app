@@ -9,6 +9,5 @@
     function AboutCtrl($scope) {
         console.log('AboutCtrl');
         var vm = this;
-
     }
 })();

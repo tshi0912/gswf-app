@@ -5,11 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('gswf', ['ionic', 'ionic.service.core',
-    'ngIOS9UIWebViewPatch', 'ngCordova', 'underscore', 'angularMoment', 'angular-md5',
-    'gswf.frame', 'gswf.util', 'gswf.templates']);
+angular.module('gswf', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova',
+    'underscore', 'angularMoment', 'angular-md5',
+    'gswf.frame', 'gswf.util', 'gswf.templates',
+    'gswf.gs']);
 
 //创建module
+angular.module('gswf.config',[]);
+
 angular.module('gswf').constant('$ionicLoadingConfig', {
     template: '<ion-spinner icon="ios"></ion-spinner><br/>加载中...',
     noBackdrop: true

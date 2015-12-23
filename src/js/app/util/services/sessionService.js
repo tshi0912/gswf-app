@@ -5,7 +5,7 @@
  * Created by shitao on 15/10/17.
  */
 (function () {
-    angular.module('gswf.util')
+    appModule('gswf.util')
         .factory('sessionService', sessionService);
 
     sessionService.$injector = ['_'];

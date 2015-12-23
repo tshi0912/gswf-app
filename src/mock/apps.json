@@ -1,0 +1,27 @@
+{
+    "code": "ACK",
+    "message": null,
+    "data": [
+        {
+            "id": 1,
+            "icon": "ion-ios-paperplane",
+            "level": "calm",
+            "name": "个税查询",
+            "route": "app.gscx"
+        },
+        {
+            "id": 2,
+            "icon": "ion-ios-copy",
+            "level": "positive",
+            "name": "纳税清单",
+            "route": "app.nsqd"
+        },
+        {
+            "id": 3,
+            "icon": "ion-ios-checkmark",
+            "level": "balanced",
+            "name": "在线校验",
+            "route": "app.zxjy"
+        }
+    ]
+}

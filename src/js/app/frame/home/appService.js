@@ -9,7 +9,7 @@
     // 申明依赖
     appService.$inject = ['appApi', 'sessionService'];
 
-    function appService(appApi, session) {
+    function appService(appApi, sessionService) {
 
         var mines = [];
 
@@ -18,8 +18,8 @@
             load: function () {
                 var promise;
 
-                if (session.isSignIn()) {
-                    promise = appApi.getApps(session.getSignInUser().id);
+                if (sessionService.isSignIn()) {
+                    promise = appApi.getApps(sessionService.getSignInUser().id);
                 } else {
                     promise = appApi.getDefaultApps();
                 }

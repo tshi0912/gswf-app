@@ -6,7 +6,7 @@
         .controller('AppCtrl', AppCtrl);
     AppCtrl.$inject = ['$scope','appService', 'msgService', 'sessionService'];
 
-    function AppCtrl($scope, appService, msgService, session) {
+    function AppCtrl($scope, appService, msgService, sessionService) {
         console.log('AppCtrl');
 
         // 加载基础数据
@@ -14,7 +14,7 @@
         msgService.load();
 
         var vm = this;
-        vm.me = session.getSignInUser();
+        vm.me = sessionService.getSignInUser();
         vm.msgs = msgService.all();
     }
 })();

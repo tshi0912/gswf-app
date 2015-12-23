@@ -13,7 +13,7 @@
       .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'views/menu.html',
+        templateUrl: 'js/app/frame/home/menu.html',
         controller: 'AppCtrl as vm'
       });
 

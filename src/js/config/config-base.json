@@ -1,5 +1,5 @@
 {
-  "name": "app.config",
+  "name": "gswf.config",
   "constants": {
     "APP": {
       "routerDefaultState": "app.auth.main.dash"

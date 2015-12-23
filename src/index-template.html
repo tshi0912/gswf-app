@@ -7,7 +7,7 @@
   <title></title>
 
   <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
-  <!-- build:sass -->
+  <!-- build:css -->
   <link href="css/ionic.app.css" rel="stylesheet">
   <!-- endbuild -->
 </head>
@@ -25,39 +25,44 @@
 
       During a production build, this gets swapped out for the minified version (ionic.bundle.min.js).
   -->
-  <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
-  <!-- build:ionic -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
-  <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
-  <!-- endbuild -->
-
   <script src="lib/underscore/underscore.js"></script>
   <script src="lib/moment/moment.js"></script>
   <script src="lib/moment/locale/zh-cn.js"></script>
   <script src="lib/angular-underscore-module/angular-underscore-module.js"></script>
   <script src="lib/angular-moment/angular-moment.js"></script>
   <script src="lib/angular-md5/angular-md5.js"></script>
-  <script src="js/lib/angular-ios9-uiwebview.patch.js"></script>
   <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-
-  <script src="js/modules.js"></script>
 
   <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
   <!-- build:js -->
+  <script src="js/modules.js"></script>
 
   <!-- NOTE: the inject-endinject tags are used by gulp-inject - DO NOT REMOVE -->
   <!-- inject:js -->
   <!-- endinject -->
 
-  <!-- scripts belonging to the root "app" module are placed here -->
-  <script src="js/app/app.js"></script>
-  <script src="js/app/boot.js"></script>
   <!-- endbuild -->
 
   <script src="js/config/config.js"></script>
 
   <!-- ANGULAR-TEMPLATECACHE -->
   <script src="js/templates.js"></script>
-  
+
+  <!-- BOOT -->
+  <script src="js/app/boot.js"></script>
+
+  <script type="text/javascript">
+    if (window.devicePixelRatio && devicePixelRatio >= 2) {
+      var testElem = document.createElement('div');
+      testElem.style.border = '.5px solid transparent';
+      document.body.appendChild(testElem);
+      if (testElem.offsetHeight == 1) {
+        document.querySelector('html').classList.add('retinalines');
+      }
+      document.body.removeChild(testElem);
+    }
+  </script>
+
 </body>
 </html>

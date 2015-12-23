@@ -6,9 +6,9 @@
         .controller('SettingsCtrl', SettingsCtrl);
     SettingsCtrl.$inject = ['$scope', 'sessionService'];
 
-    function SettingsCtrl($scope, session) {
+    function SettingsCtrl($scope, sessionService) {
         console.log('SettingsCtrl');
         var vm = this;
-        vm.me = session.getSignInUser();
+        vm.me = sessionService.getSignInUser();
     }
 })();

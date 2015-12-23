@@ -14,7 +14,9 @@
             templateUrl: 'js/app/frame/home/app-thumb.html',
             controller: ['$scope', '$state', function ($scope, $state) {
                 $scope.openApp = function () {
-                    $state.go('app.app', {appId: $scope.app.id})
+                    if($scope.app.route) {
+                        $state.go($scope.app.route);
+                    }
                 };
             }],
             link: function (scope, element, attrs) {
