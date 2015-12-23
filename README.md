@@ -1,66 +1,39 @@
-# Ionic Quickstarter
+# 个税服务平台
 
-### A boilerplate and Reference app providing tools and best practices to kickstart your app development
+### 使用Ionic开发模块化H5移动的样板工程以及最佳实践。
 
-For background, read my
-<a href="http://codepen.io/leob6/blog/ionic-quickstarter-a-starter-app-to-kickstart-your-app-development" target="_blank">
-blog post</a>.
+***NOTE:*** 本样板应用基于 Ionic 1.x 和 Angular 1.x.
 
-***IMPORTANT NOTE:*** I've added two useful sections to the Wiki:
+本样板应用旨在解决(自动化build, SASS/样式编制, Ionic模块化架构)等问题.
 
-* [Release notes](https://github.com/leob/ionic-quickstarter/wiki/Release-notes)
-* [Tips and troubleshooting](https://github.com/leob/ionic-quickstarter/wiki/Tips-and-troubleshooting)
+## 内容目录
 
-Please make a habit of consulting these Wiki pages because they contain important information. 
+[架构简介](#introduction)<br>
+[安装和用法](#installation-and-usage)<br>
+[Gulp文件](#gulp-file)<br>
+[项目结构](#project-structure)<br>
+[贡献者列表](#contributing)
 
-I intend to keep this starter app up to date with the newest versions of Ionic etc, and to add features/improvements.
-See [Todo and Roadmap](https://github.com/leob/ionic-quickstarter/wiki/Todo-and-roadmap) on the Wiki, and feel free to
-[contribute](https://github.com/leob/ionic-quickstarter/wiki/Contributing).
+## 简介
 
-***NOTE:*** this starter app is based on Ionic 1.x and Angular 1.x.
+个税服务平台样板工程基于Ionic "menu starter"启动工程, 并提供给了以下额外的功能点:
 
-The upcoming new Ionic 2 release will, in all likelihood, address 80-90% of the issues which this starter app aims to
-address (e.g. build system, SASS/styling, common Ionic 'gotchas' and so on). So, "post-Ionic 2" this starter (and most
-other starters) will probably lose a lot of their relevance.
+* 一个经过优化后的gulp.js文件 (如为product发布进行了优化, 对模板进行缓存等等)
+* 优化后的项目结构 (更适合大型项目的模块化结构)
+* Javascript脚本文件将通过gulp的任务自动被注入进index.html文件中
+* 可以根据不同的环境，定义不同的配置参数（例如，appkey）,这些环境参数将被gulp.js写进config.js中
+* 支持通过Karma和Jasmine进行单元测试
+* 支持Typescript文件('tsd'文件),以方便在具备智能感应功能的的IDE中，如WebStorm和Visual Studio，开启词组自动补全功能
+* 支持国际化 (I18N)，通过  <a href="https://github.com/angular-translate/angular-translate"
+target="_blank">angular-translate</a>  (目前只支持英文,添加其他语言支持也非常方便)
+* 提供了对Ionic应用常见bug的修复 (如滑动关闭菜单, 硬回退按钮等)
+* 提供了众多AngularJS和Ionic的'最佳实践' (例如"Controller as" 语法)
+* 模块化的SASS设置包括唾手可得的工具类样式和对字体，颜色定义的最佳实践
+* 可重用的services和directives包括一些通用的工具函数
+* 'appModule' 工具函数，可以使AngularJS模块化管理更简单
+* 目前基于Ionic v.1.2.0 and AngularJS 1.4; 已经在3种设备进行过测试: iPhone 4, Android smartphone, Android tablet
 
-## Table of contents
-
-[Introduction](#introduction)<br>
-[Installation and usage](#installation-and-usage)<br>
-[Gulp file](#gulp-file)<br>
-[Project structure](#project-structure)<br>
-[Contribute](#contributing)
-
-## Introduction
-
-Ionic Quickstarter is based on the "tabs starter" project from Ionic, but has the following extras:
-
-* An improved gulp.js file (with a build process optimized for production, with template caching etc)
-* Improved project structure (a modular app structure suitable for bigger apps)
-* Application script files (Javascript) will be automatically included in your index.html by the gulp build process  
-* Per environment, you can define different values for constants (e.g. appKey and so on) which are then written into
-  config.js by the appropriate gulp task
-* Unit test support using Karma and Jasmine
-* Typescript Definition Files ('tsd' files) which enable autocomplete/intelli-sense features when you use an IDE such
-as WebStorm or Visual Studio
-* Signup and login flow implemented with Parse or Firebase (with the flexibility to add other implementations)
-* Support for the two main Ionic UI patterns: side menus and tabs, and an Intro screen with a Slider
-* Includes some commonly used features, for instance form validation using ng-messages and improved logging
-* Basic image support: Cordova camera, image cropping, storing images in local storage, and displaying images
-* Supports internationalization (I18N) using the <a href="https://github.com/angular-translate/angular-translate"
-target="_blank">angular-translate</a> library (currently only an English language file is supplied, it's easy to add
-other languages)
-* Provides workarounds for a number of well-known issues in Ionic apps (swipe to close menu, hardware back button etc)
-* Incorporates a number of 'best practices' for AngularJS and Ionic (e.g. "Controller as" syntax)
-* A modular SASS setup including some handy utility styles and best practices for customization of colors, fonts etc.
-* Reusable services and directives containing some commonly used utility functions that you can call in your app 
-* An 'appModule' utility function that makes managing your AngularJS modules slightly easier
-* Currently based on Ionic v.1.1.0 and AngularJS 1.4; tested on 3 devices: iPhone 4, Android smartphone, Android tablet
-
-The first two topics (Project structure and Gulp file) will be explained below.
-
-To keep this README short (it's already too long), I'm putting the rest of the information on the
-[Wiki](https://github.com/leob/ionic-quickstarter/wiki).
+上述的第一、第二点 (项目结构和Gulp文件) 将在上面详细描述.
 
 ## Installation and usage
 
