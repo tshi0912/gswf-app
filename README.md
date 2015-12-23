@@ -8,7 +8,7 @@
 
 ## 内容目录
 
-[架构简介](#introduction)<br>
+[简介](#简介)<br>
 [安装和用法](#installation-and-usage)<br>
 [Gulp文件](#gulp-file)<br>
 [项目结构](#project-structure)<br>
