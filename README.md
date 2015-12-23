@@ -33,34 +33,29 @@ target="_blank">angular-translate</a>提供国际化功能  (目前只支持英�
 * 'appModule' 工具函数，可以使AngularJS模块化管理更简单
 * 目前基于Ionic 1.2 和AngularJS 1.4; 已经在3种设备进行过测试: iPhone 4, Android smartphone, Android tablet
 
-上述的第一、第二点 (项目结构和Gulp文件) 将在上面详细描述.
+上述的第一、第二点 (项目结构和Gulp文件) 将在下面详细描述.
 
-## Installation and usage
+## 安装和用法
 
-First, install ```nodejs```, ```npm```, ```gulp```, ```bower```, ```cordova```, ```ionic``` & ```sass``` (if not
-already done).
+首先, 安装 ```nodejs```, ```npm```, ```gulp```, ```bower```, ```cordova```, ```ionic``` & ```sass``` (如果还没安装过的话).
 
-***Tip:*** instead of locally installing all of the above tools, an alternative may be to use the
-<a href="https://github.com/driftyco/ionic-box" target="_blank">Ionic Box</a>. This can be an attractive option,
-especially for Windows users.
+***小贴士:*** 除了手动一个个安装上述工具外, 另一种方法是使用
+<a href="https://github.com/driftyco/ionic-box" target="_blank">Ionic Box</a>. 这种方式更便捷,特别是针对windows用户.
 
-***Warning:*** there have been many complaints on the Ionic forum from people who are unable to get 'SASS' working on
-their system. Typically they see this error:
+***警告:*** Ionic论坛里面有很多人在吐槽'SASS'在他们的电脑上玩不转. 最典型的错误如下:
  
 ```libsass bindings not found. Try reinstalling node-sass?```
  
-For background on the issue, see:
+关于这个问题, 可以参考:
 
 http://forum.ionicframework.com/t/error-running-gulp-sass/32311
 http://forum.ionicframework.com/t/libsass-bindings-not-found/27881
 
-However, this problem **SHOULD** not occur when you install the quickstarter app, because I've upgraded ```gulp-sass```
-to a version that should be compatible with both the 'old' and the 'new' nodejs versions.
+然而, 当你首次安装本样板工程时，这个问题 **应该不会** 出现， 因为我已经将 ```gulp-sass```升级到了可以完全兼容nodejs的版本.
 
-Assuming that you have all of the above installed successfully, open a terminal and "cd" into the directory where you
-want to install your app.
+假设上述工具你都已经安装成功, 则打开终端，"cd"进入你的工作目录.
 
-Run the following commands (note: below the app is named ```myapp```, replace this by your app's name):
+运行以下命令(note: app命名为 ```gswf```, 你可以根据需要替换成你想要的名字):
 
 <pre>
 git clone https://github.com/leob/ionic-quickstarter
