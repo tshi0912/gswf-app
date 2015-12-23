@@ -18,20 +18,20 @@
 
 个税服务平台样板工程基于Ionic "menu starter"启动工程, 并提供给了以下额外的功能点:
 
-* 一个经过优化后的gulp.js文件 (如为product发布进行了优化, 对模板进行缓存等等)
+* 优化后的gulp.js文件 (如为product发布进行了优化, 对模板进行缓存等等)
 * 优化后的项目结构 (更适合大型项目的模块化结构)
 * Javascript脚本文件将通过gulp的任务自动被注入进index.html文件中
-* 可以根据不同的环境，定义不同的配置参数（例如，appkey）,这些环境参数将被gulp.js写进config.js中
+* 可以根据不同的环境，定义不同的配置参数（例如，appkey），这些环境参数将被gulp.js写进config.js中
 * 支持通过Karma和Jasmine进行单元测试
-* 支持Typescript文件('tsd'文件),以方便在具备智能感应功能的的IDE中，如WebStorm和Visual Studio，开启词组自动补全功能
+* 支持Typescript文件('tsd'文件),以方便在具备智能感应功能的的IDE中（如WebStorm和Visual Studio）开启词组自动补全功能
 * 支持国际化 (I18N)，通过  <a href="https://github.com/angular-translate/angular-translate"
-target="_blank">angular-translate</a>  (目前只支持英文,添加其他语言支持也非常方便)
+target="_blank">angular-translate</a>提供国际化功能  (目前只支持英文,添加其他语言支持也非常方便)
 * 提供了对Ionic应用常见bug的修复 (如滑动关闭菜单, 硬回退按钮等)
 * 提供了众多AngularJS和Ionic的'最佳实践' (例如"Controller as" 语法)
-* 模块化的SASS设置包括唾手可得的工具类样式和对字体，颜色定义的最佳实践
+* 模块化的SASS设置，包括唾手可得的工具类样式和对字体、颜色定义的最佳实践
 * 可重用的services和directives包括一些通用的工具函数
 * 'appModule' 工具函数，可以使AngularJS模块化管理更简单
-* 目前基于Ionic v.1.2.0 and AngularJS 1.4; 已经在3种设备进行过测试: iPhone 4, Android smartphone, Android tablet
+* 目前基于Ionic 1.2 和AngularJS 1.4; 已经在3种设备进行过测试: iPhone 4, Android smartphone, Android tablet
 
 上述的第一、第二点 (项目结构和Gulp文件) 将在上面详细描述.
 
