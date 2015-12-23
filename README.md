@@ -55,7 +55,7 @@ http://forum.ionicframework.com/t/libsass-bindings-not-found/27881
 
 假设上述工具你都已经安装成功, 则打开终端，"cd"进入你的工作目录.
 
-运行以下命令(note: app命名为 ```gswf```, 你可以根据需要替换成你想要的名字):
+运行以下命令(注意: app命名为 ```gswf```, 你可以根据需要替换成你想要的名字):
 
 <pre>
 git clone https://github.com/leob/ionic-quickstarter
@@ -63,15 +63,13 @@ mv ionic-quickstarter myapp
 cd myapp
 </pre>
 
-If you want to put your app under source control and you use Git, type the command:
+如果你想通过Git管理你的代码, 键入:
 
 <pre>
 git init
 </pre>
 
-***NOTE:*** the next step (editing ionic.project and config.xml to change the app name) is OPTIONAL. You can skip this
-step and do it later (or not at all), if you want. If you want to do it, then edit the following two files using a text
-editor:
+***注意:*** 这一步 (编辑 ionic.project 和 config.xml 更改app的名字)是可选的. 如果需要，你可以先略过，回头再改. 若干确定要改，则通过文本编辑器打开:
 
 <pre>
 ionic.project
