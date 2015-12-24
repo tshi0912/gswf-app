@@ -1,4 +1,21 @@
 <ion-view view-title="个税查询" class="gscx-view">
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-back-button class="button-clear">
+            <i class="icon ion-ios-arrow-left"></i> 返回
+        </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content>
+        <ion-list class="gs-list">
+            <div class="item item-divider"></div>
+            <ion-item class="item-avatar item-icon-right gs-item" ng-repeat="gs in vm.gslist" gs="gs"></ion-item>
+        </ion-list>
     </ion-content>
+    <ion-footer-bar align-title="right" class="bar-light">
+        <span class="sk-total">
+            税款合计: <span class="total">{{vm.totalAmount}}</span> 元
+        </span>
+        <button class="button button-positive">
+            申请纳税清单
+        </button>
+    </ion-footer-bar>
 </ion-view>

@@ -6,83 +6,106 @@
   &:not(.fullscreen) {
 
     .home-view .hero-box {
-      margin-top: $bar-height + $ios-statusbar-height;
+      padding-top: $bar-height + $ios-statusbar-height;
+      height: 166px + $ios-statusbar-height;
     }
 
-    .msg-box{
-      ion-content{
+    .msg-box {
+      ion-content {
         margin-top: $bar-height + $ios-statusbar-height;;
       }
     }
 
   }
 }
-.none-border{
+
+.none-border {
   border: none;
 }
+
 .pane, .view {
   background-color: $light-gray;
 }
+
 .item,
 .item-complex .item-content,
-.item-radio .item-content{
+.item-radio .item-content {
   padding-top: 12px;
   padding-bottom: 12px;
   font-size: 14px;
 }
-.item-divider{
+
+.item-divider {
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 0;
 }
-.item-input{
+
+.item-input {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
 .item-complex, a.item.item-complex,
-button.item.item-complex{
+button.item.item-complex {
   padding: 0;
 }
+
 .item-icon-left .icon,
-.item-icon-right .icon{
+.item-icon-right .icon {
   font-size: 26px;
   color: #999;
 }
-.item-toggle .toggle{
+
+.item-toggle .toggle {
   top: 7px;
 }
-.item-note{
+
+.item-note {
   text-align: right;
 }
 
-ion-content{
-  .list{
-    > .item:first-child{
+ion-content {
+  .list {
+    > .item:first-child {
       border-top: none;
     }
   }
 }
 
 .bar .button.back-button,
-.bar button.back-button{
+.bar button.back-button {
   font-size: 14px;
   padding-left: 5px;
 }
-.bar-dark .button.button-clear{
+
+.bar .button.back-button .icon:before,
+.bar button.back-button .icon:before {
+  font-size: 28px;
+}
+
+.bar-dark .button.button-clear {
   font-size: 14px;
 }
-.bar-stable .button.button-clear{
+
+.bar-stable .button.button-clear {
   font-size: 14px;
 }
-.bar-dark .item-input-wrapper{
+
+.bar-dark .item-input-wrapper {
   background-color: $gray;
 
-  .placeholder-icon:first-child{
+  .placeholder-icon:first-child {
     padding-right: 0;
     font-size: 16px;
   }
 }
 
+.home-view {
+  .bar.bar-dark {
+    background-color: $dark;
+  }
+}
 
 .avatar {
   display: inline-block;
@@ -96,17 +119,26 @@ ion-content{
   &.avatar-bg {
     width: 52px;
     height: 52px;
-    line-height: 52px;
+    line-height: 50px;
+  }
+
+  &.avatar-clear {
+    background-color: transparent;
+    border: 1px solid $light-gray;
+    color: $positive;
+    font-size: 15px;
+    font-weight: 200;
   }
 }
+
 .item-avatar,
-.item-avatar > .item-content{
+.item-avatar > .item-content {
   padding-left: 82px;
   min-height: 68px;
 }
 
 .item-avatar > .avatar,
-.item-avatar > .item-content > .avatar{
+.item-avatar > .item-content > .avatar {
   position: absolute;
   top: 8px;
   left: 16px;
@@ -119,7 +151,7 @@ ion-content{
     border: none;
     background-color: transparent;
 
-    > a{
+    > a {
       background-color: transparent;
     }
   }
@@ -137,8 +169,8 @@ ion-content{
   .list {
     border-top: 1px solid $gray;
   }
-  .profile-list{
-    .list{
+  .profile-list {
+    .list {
       border-top: none;
     }
   }
@@ -148,13 +180,14 @@ ion-content{
     }
   }
 }
-.msg-box{
+
+.msg-box {
   background-color: $light-gray;
-  .item{
+  .item {
     border-color: $gray;
   }
 
-  ion-content{
+  ion-content {
     margin-top: $bar-height;
   }
 }
@@ -173,8 +206,8 @@ ion-content{
 
   .hero-box {
     background-color: #444;
-    margin-top: 44px;
-    height: 122px;
+    height: 166px;
+    padding-top: 44px;
 
     .row > .col {
       position: relative;
@@ -237,9 +270,47 @@ app-thumb {
   }
 }
 
-.search-view{
+.search-view {
   background-color: $light;
 }
-.scan-view{
+
+.scan-view {
   background-color: #000;
+}
+
+/*** gs module ****/
+.gscx-view {
+  .gs-list {
+  }
+  ion-footer-bar{
+    padding: 0;
+    display: block;
+    text-align: right;
+    .sk-total{
+      line-height: 44px;
+    }
+    .total{
+      font-size: 20px
+    }
+    .button{
+      height: 100%;
+      line-height: 100%;
+      border-radius: 0;
+      border: none;
+      min-width : 150px;
+      font-size: 16px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.gs-item {
+  vertical-align: middle;
+  line-height: 40px;
+  .amount {
+    font-size: 20px;
+  }
+  .icon{
+    font-size: 20px;
+  }
 }
