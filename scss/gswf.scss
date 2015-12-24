@@ -147,6 +147,49 @@ ion-content {
   left: 16px;
 }
 
+.checker{
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  color: $gray;
+  font-weight: 600;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid $light-gray;
+  font-size: 15px;
+  width: 32px;
+  height: 32px;
+  line-height: 30px;
+
+  .icon{
+    font-size: 30px;
+  }
+}
+
+.item.selected {
+  .checker{
+    color: $light;
+    background-color: $positive;
+    border-color: $positive;
+  }
+}
+
+.item.selected{
+  background-color: #dff8ff;
+}
+
+.item-checker,
+.item-checker > .item-content {
+  padding-left: 60px;
+}
+
+.item-checker > .checker,
+.item-checker > .item-content > .checker {
+  position: absolute;
+  top: 6px;
+  left: 16px;
+}
+
 .menu-box {
   background-color: $stable;
 

@@ -20,7 +20,8 @@
         var gsApi = {
             queryGs: queryGs,
             queryNsqd: queryNsqd,
-            validateQr: validateQr
+            validateQr: validateQr,
+            getKjywrs: getKjywrs
         };
 
         /**
@@ -39,6 +40,10 @@
         function validateQr(){
             return $http.get(gsUri.VALIDATE_QR.replace('{userId}', userId));
         };
+
+        function getKjywrs(userId){
+            return $http.get(gsUri.GET_USER_KJYWRS.replace('{userId}', userId));
+        }
         
         return gsApi;
     };

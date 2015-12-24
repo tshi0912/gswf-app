@@ -11,7 +11,8 @@
 
     function gsService(gsApi, sessionService, _) {
 
-        var gslist = [];
+        var gslist = [],
+            kjywrs = [];
 
         return {
 
@@ -19,6 +20,19 @@
                 if(_.isEmpty(gslist)){
                     this.query();
                 }
+                if(_.isEmpty(kjywrs)){
+                    this.getKjywrs();
+                }
+            },
+
+            getKjywrs: function(){
+                return gsApi.getKjywrs(sessionService.getSignInUser().id)
+                    .success(function (items) {
+                        kjywrs.length = 0;
+                        _.each(items, function (item) {
+                            kjywrs.push(item);
+                        });
+                    });
             },
 
             query: function () {
@@ -34,6 +48,10 @@
 
             all: function () {
                 return gslist;
+            },
+
+            kjywrs: function(){
+                return kjywrs;
             },
 
             get: function (gsId) {

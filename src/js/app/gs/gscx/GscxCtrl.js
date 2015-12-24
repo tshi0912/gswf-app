@@ -11,12 +11,15 @@
 
         var vm = this;
         vm.gslist = gsService.all();
+        vm.orgKjywrs = gsService.kjywrs();
+        vm.kjywrs = [];
         vm.totalAmount = 0;
         vm.filterShown = false;
         vm.query = {
             startMonth: moment().subtract(10,'months').startOf('month').format('YYYY-MM'),
             endMonth: moment().startOf('month').format('YYYY-MM'),
-            kjywr: '上海税友软件有限公司'
+            kjywr: '上海税友软件有限公司',
+            kjywrs: []
         };
         vm.queryEdit = _.clone(vm.query);
         vm.queryEdit.startMonth = moment(vm.query.startMonth).toDate();
@@ -25,6 +28,18 @@
         $scope.$watchCollection('vm.gslist', function(news, olds){
             _.each(news, function(item){
                 vm.totalAmount += item.amount;
+            });
+        });
+        $scope.$watchCollection('vm.orgKjywrs', function(news, olds){
+            _.each(news, function(item){
+                if(item.id === -1){
+                    vm.allKjywr = item;
+                    vm.allKjywr.selected = true;
+                    vm.queryEdit.kjywrs.length = 0;
+                    vm.query.kjywrs.push(item);
+                }else{
+                    vm.kjywrs.push(item);
+                }
             });
         });
         $ionicPopover.fromTemplateUrl('js/app/gs/gscx/query-filter.html', {
@@ -70,6 +85,30 @@
             vm.kjywr.show();
         };
         vm.closeKjywr = function () {
+            vm.kjywr.hide();
+        };
+        vm.toggleKjywr = function(kjywr){
+            if(kjywr.id === -1 && !kjywr.selected){
+                _.each(vm.kjywrs, function(item){
+                    item.selected = false;
+                });
+            }else if(kjywr.id !== -1 && !kjywr.selected){
+                vm.allKjywr.selected = false;
+            }else{
+                var t = _.filter(vm.orgKjywrs, function(item){return item.selected;})
+                if(t.length === 1 && t[0].id === kjywr.id){
+                    return;
+                }
+            }
+            kjywr.selected = !kjywr.selected;
+        };
+        vm.confirmKjywrs = function(){
+            vm.queryEdit.kjywrs.length =0;
+            _.each(vm.orgKjywrs, function(item){
+                if(item.selected){
+                    vm.queryEdit.kjywrs.push(item);
+                }
+            })
             vm.kjywr.hide();
         };
 
