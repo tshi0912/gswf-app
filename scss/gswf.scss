@@ -324,16 +324,82 @@ app-thumb {
   background-color: #000;
 }
 
+.divider{
+  margin: 1rem 0;
+  line-height: 1;
+  height: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: rgba(0,0,0,.85);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+}
+.vertical.divider{
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 50%;
+  line-height: 0;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  &:after,
+  &:before{
+    position: absolute;
+    left: 50%;
+    content: '';
+    z-index: 3;
+    border-left: 1px solid rgba(34,36,38,.15);
+    width: 0;
+    height: 100%;
+  }
+
+  &:before{
+    top: -100%;
+  }
+
+  &:after{
+    top: auto;
+    bottom: 0;
+  }
+
+  &.light:after,
+  &.light:before{
+    border-color: $light;
+  }
+}
+
+.popover-backdrop.active{
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
 .query-filter{
   margin: 0;
+  background-color: transparent !important;
   border-radius: 0 !important;
   width: 100% !important;
   left: 0 !important;
   top: 44px !important;
+  box-shadow: none !important;
 
   .scroll-content{
     margin: 0 !important;
     border-radius: 0 !important;
+
+    ion-list .list{
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    }
   }
 
   .popover-arrow{
@@ -348,6 +414,28 @@ app-thumb {
   }
   .item-note{
     color: #666;
+  }
+  .tail-box{
+    text-align: center;
+
+    .divider-box{
+      position: relative;
+      min-height: 50px;
+    }
+
+    .button{
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      line-height: 48px;
+      min-height: auto;
+      min-width: auto;
+      border: 1px solid $light;
+      background-color: transparent;
+      color: $light;
+      padding: 0;
+      font-size: 38px;
+    }
   }
 }
 
@@ -413,16 +501,67 @@ app-thumb {
 }
 
 .gs-item {
-  vertical-align: middle;
-  line-height: 40px;
-  .amount {
-    font-size: 20px;
+  background-color: $light;
+  height: 68px;
+  transition: height linear 0.2s;
+  &.open{
+    height: 180px;
   }
-  .icon{
-    font-size: 20px;
+
+  .item {
+    border-bottom: none;
+    margin-bottom: 0;
+    vertical-align: middle;
+    line-height: 40px;
+    .amount {
+      font-size: 20px;
+    }
+    .icon {
+      font-size: 20px;
+      &.open{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      &.open-add,
+      &.open-remove{
+        transition: all linear 0.2s;
+      }
+    }
+  }
+  .detail{
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid $stable;
+    color: #888;
+    display: none;
+    .label{
+      min-width: 100px;
+      display: inline-block;
+    }
+    &.open{
+      display: block;
+    }
   }
 }
 
 .gscx-query{
-  height: 136px;
+  height: 240px;
+  overflow: hidden;
+  ion-content {
+    transform: translate3d(0, -240px, 0);
+  }
+  &.ng-enter{
+    ion-content{
+      transform: translate3d(0,0px,0);
+      transition: transform linear 0.2s;
+    }
+  }
+  &.ng-leave{
+    ion-content{
+      transform: translate3d(0,-240px,0);
+      transition: transform linear 0.2s;
+    }
+  }
 }

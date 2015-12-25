@@ -1,4 +1,11 @@
-<i class="avatar avatar-bg avatar-clear">{{gs.type}}</i>
-<span class="amount">{{gs.amount}}</span> 元
-<span class="item-note">{{gs.date}}</span>
-<i class="icon ion-ios-arrow-down"></i>
+<ion-item class="item-avatar item-icon-right" ng-click="vm.toggleDetail(gs);">
+    <i class="avatar avatar-bg avatar-clear">{{gs.type}}</i>
+    <span class="amount">{{gs.amount}}</span> 元
+    <span class="item-note">{{gs.date | monthLabel }}</span>
+    <i class="icon ion-ios-arrow-down" ng-class="{open: gs.opened}"></i>
+</ion-item>
+<div class="detail" ng-class="{open: gs.opened}">
+    <p><span class="label">征收机关：</span>{{gs.zsjg}}</p>
+    <p><span class="label">扣缴义务人：</span>{{gs.kjywr.name}}</p>
+    <p><span class="label">税款日期：</span>{{gs.skrq | monthLabel}}</p>
+</div>

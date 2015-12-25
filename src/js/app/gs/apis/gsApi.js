@@ -29,7 +29,7 @@
          *
          * @param userId 字符串，用户Id
          */
-        function queryGs(userId) {
+        function queryGs(userId, params) {
             return $http.get(gsUri.QUERY_USER_GS.replace('{userId}', userId));
         };
 

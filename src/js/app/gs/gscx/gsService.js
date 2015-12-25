@@ -16,12 +16,13 @@
 
         return {
 
-            load: function(){
-                if(_.isEmpty(gslist)){
-                    this.query();
-                }
+            load: function(params){
+                var self = this;
                 if(_.isEmpty(kjywrs)){
-                    this.getKjywrs();
+                    this.getKjywrs()
+                        .success(function(d){
+                            self.query(params.query);
+                        });
                 }
             },
 
@@ -35,14 +36,34 @@
                     });
             },
 
-            query: function () {
+            query: function (query) {
 
-                return gsApi.queryGs(sessionService.getSignInUser().id)
+                return gsApi.queryGs(sessionService.getSignInUser().id, query)
                     .success(function (items) {
                         gslist.length = 0;
-                        _.each(items, function (item) {
-                            gslist.push(item);
-                        });
+                        //_.each(items, function (item) {
+                        //    gslist.push(item);
+                        //});
+
+                        // Mock Handle
+                        var len = moment(query.endMonth).diff(moment(query.startMonth), 'months') + 1,
+                            gs;
+                        for(var i=0; i<len; i++){
+                            gs = {};
+                            gs.id = i+1;
+                            gs.type = '工资';
+                            if(i === 0){
+                                gs.amount = 23.65;
+                            }else{
+                                gs.amount = 23.65 + Math.random()*100;
+                                gs.amount = gs.amount.toFixed(2);
+                            }
+                            gs.date = moment(query.startMonth).add(i,'months').toDate();
+                            gs.zsjg = '上海市地税局黄埔分局';
+                            gs.kjywr = query.kjywrs[0];
+                            gs.skrq = moment(gs.date).add(1, 'months').add('9','days').toDate();
+                            gslist.push(gs);
+                        }
                     });
             },
 

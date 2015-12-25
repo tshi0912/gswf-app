@@ -5,14 +5,11 @@
 
     // 创建angular工厂对象
     appModule('gswf.gs')
-        .filter('kjywr', kjywrFilter);
+        .filter('kjywr', kjywrFilter)
+        .filter('monthInput', monthInputFilter)
+        .filter('monthLabel', monthLabelFilter)
+        .filter('numberFix', numberFixFilter);
 
-    /**
-     * 个税查询接口。
-     *
-     * @param api 对象，数据接口URL
-     * @returns 对象，用户接口
-     */
     function kjywrFilter() {
         return function (input, maxchars) {
             input = input || '';
@@ -39,6 +36,28 @@
             }
             out += ''
             return out;
+        };
+    };
+
+    function monthInputFilter() {
+        return function (input) {
+            return moment(input).format('YYYY-MM');
+        };
+    };
+
+    function monthLabelFilter() {
+        return function (input) {
+            return moment(input).format('YYYY年MM月');
+        };
+    };
+
+    function numberFixFilter(){
+        return function (input, point) {
+            if(!input){
+                return '0.00';
+            }else{
+                return parseFloat(input).toFixed(point || 2) + '';
+            }
         };
     };
 })();

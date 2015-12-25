@@ -4,7 +4,7 @@
 (function () {
     appModule('gswf.gs')
         .controller('GscxCtrl', GscxCtrl);
-    GscxCtrl.$inject = ['$scope','$ionicHistory', 'gsService', '_', '$ionicPopover', '$ionicModal'];
+    GscxCtrl.$inject = ['$scope', '$ionicHistory', 'gsService', '_', '$ionicPopover', '$ionicModal'];
 
     function GscxCtrl($scope, $ionicHistory, gsService, _, $ionicPopover, $ionicModal) {
         console.log('GscxCtrl');
@@ -15,68 +15,77 @@
         vm.kjywrs = [];
         vm.totalAmount = 0;
         vm.filterShown = false;
+        vm.queryChanged = false;
         vm.query = {
-            startMonth: moment().subtract(10,'months').startOf('month').format('YYYY-MM'),
-            endMonth: moment().startOf('month').format('YYYY-MM'),
-            kjywr: '上海税友软件有限公司',
+            startMonth: moment().subtract(10, 'months').startOf('month').toDate(),
+            endMonth: moment().startOf('month').toDate(),
             kjywrs: []
         };
         vm.queryEdit = _.clone(vm.query);
-        vm.queryEdit.startMonth = moment(vm.query.startMonth).toDate();
-        vm.queryEdit.endMonth = moment(vm.query.endMonth).toDate();
+        vm.queryEdit.kjywrs = _.toArray(vm.query.kjywrs);
 
-        $scope.$watchCollection('vm.gslist', function(news, olds){
-            _.each(news, function(item){
-                vm.totalAmount += item.amount;
+        $scope.$watchCollection('vm.gslist', function (news, olds) {
+            vm.totalAmount = 0;
+            _.each(news, function (item) {
+                vm.totalAmount += parseFloat(item.amount);
             });
         });
-        $scope.$watchCollection('vm.orgKjywrs', function(news, olds){
-            _.each(news, function(item){
-                if(item.id === -1){
+        $scope.$watchCollection('vm.orgKjywrs', function (news, olds) {
+            _.each(news, function (item) {
+                if (item.id === -1) {
                     vm.allKjywr = item;
                     vm.allKjywr.selected = true;
                     vm.queryEdit.kjywrs.length = 0;
+                    vm.queryEdit.kjywrs.push(item);
+                    vm.query.kjywrs.length = 0;
                     vm.query.kjywrs.push(item);
-                }else{
+                } else {
                     vm.kjywrs.push(item);
                 }
             });
         });
+        $scope.$watch('vm.queryEdit', function (n, o) {
+            vm.queryChanged = !_.isEqual(vm.query, n);
+        },true);
+
         $ionicPopover.fromTemplateUrl('js/app/gs/gscx/query-filter.html', {
             scope: $scope
-        }).then(function(popover) {
+        }).then(function (popover) {
             vm.filter = popover;
         });
 
-        vm.toggleFilter = function($event) {
-            if(vm.filter.isShown()){
+        vm.toggleFilter = function ($event) {
+            if (vm.filter.isShown()) {
                 vm.filterShown = false;
                 vm.filter.hide($event);
-            }else{
+            } else {
                 vm.filterShown = true;
                 vm.filter.show($event);
             }
         };
-        $scope.$on('popover.hidden', function() {
+        vm.hideFilter = function ($event) {
             vm.filterShown = false;
-            console.log('popover.hidden');
+            vm.filter.hide($event)
+        };
+        $scope.$on('popover.hidden', function () {
+            vm.filterShown = false;
+            vm.tryToQuery();
         });
-        $scope.$on('popover.shown', function() {
+        $scope.$on('popover.shown', function () {
             vm.filterShown = true;
-            console.log('popover.shown');
         });
-        $scope.$on('popover.removed', function() {
+        $scope.$on('popover.removed', function () {
         });
 
 
         $ionicModal.fromTemplateUrl('js/app/gs/gscx/kjywr.html', {
             scope: $scope,
             animation: 'slide-in-up'
-        }).then(function(modal) {
+        }).then(function (modal) {
             vm.kjywr = modal;
         });
 
-        $scope.$on('$destroy', function() {
+        $scope.$on('$destroy', function () {
             vm.filter.remove();
             vm.kjywr.remove();
         });
@@ -87,31 +96,46 @@
         vm.closeKjywr = function () {
             vm.kjywr.hide();
         };
-        vm.toggleKjywr = function(kjywr){
-            if(kjywr.id === -1 && !kjywr.selected){
-                _.each(vm.kjywrs, function(item){
+        vm.toggleKjywr = function (kjywr) {
+            if (kjywr.id === -1 && !kjywr.selected) {
+                _.each(vm.kjywrs, function (item) {
                     item.selected = false;
                 });
-            }else if(kjywr.id !== -1 && !kjywr.selected){
+            } else if (kjywr.id !== -1 && !kjywr.selected) {
                 vm.allKjywr.selected = false;
-            }else{
-                var t = _.filter(vm.orgKjywrs, function(item){return item.selected;})
-                if(t.length === 1 && t[0].id === kjywr.id){
+            } else {
+                var t = _.filter(vm.orgKjywrs, function (item) {
+                    return item.selected;
+                })
+                if (t.length === 1 && t[0].id === kjywr.id) {
                     return;
                 }
             }
             kjywr.selected = !kjywr.selected;
         };
-        vm.confirmKjywrs = function(){
-            vm.queryEdit.kjywrs.length =0;
-            _.each(vm.orgKjywrs, function(item){
-                if(item.selected){
+        vm.confirmKjywrs = function () {
+            vm.queryEdit.kjywrs.length = 0;
+            _.each(vm.orgKjywrs, function (item) {
+                if (item.selected) {
                     vm.queryEdit.kjywrs.push(item);
                 }
             })
             vm.kjywr.hide();
         };
 
-        gsService.load();
+        vm.tryToQuery = function () {
+            if (!_.isEqual(vm.query, vm.queryEdit)) {
+                _.extend(vm.query, _.omit(vm.queryEdit, 'kjywrs'));
+                vm.query.kjywrs = _.union(vm.queryEdit.kjywrs);
+                vm.queryChanged = false;
+                gsService.query(vm.query);
+            }
+        };
+
+        vm.toggleDetail = function(gs){
+            gs.opened = !gs.opened;
+        };
+
+        gsService.load({query: vm.query});
     }
 })();

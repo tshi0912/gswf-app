@@ -4,12 +4,12 @@
             <a class="item item-input">
                 <span>起始日期</span>
                 <input type="month" placeholder="年/月" ng-model="vm.queryEdit.startMonth"
-                       value="{{vm.query.startMonth}}">
+                       value="{{vm.query.startMonth | monthInput}}">
             </a>
             <a class="item item-input">
                 <span>截止日期</span>
                 <input type="month" placeholder="年/月" ng-model="vm.queryEdit.endMonth"
-                       value="{{vm.query.endMonth}}">
+                       value="{{vm.query.endMonth | monthInput}}">
             </a>
             <a class="item item-icon-right" ng-click="vm.openKjywr();">
                 <span>扣缴义务人</span>
@@ -17,5 +17,16 @@
                 <i class="icon ion-ios-more"></i>
             </a>
         </ion-list>
+        <div class="tail-box" ng-click="vm.hideFilter($event);">
+            <div class="divider-box">
+                <div class="vertical divider light"></div>
+            </div>
+            <button class="button button-light">
+                <i ng-class="{
+                    'ion-ios-close-empty': !vm.queryChanged,
+                    'ion-ios-checkmark-empty': vm.queryChanged
+                }"></i>
+            </button>
+        </div>
     </ion-content>
 </ion-popover-view>
