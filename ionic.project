@@ -1,19 +1,19 @@
 {
- "name": "myapp",
- "app_id": "",
- "proxies": [
+  "name": "gswf",
+  "app_id": "51726bc4",
+  "proxies": [
     {
       "path": "/parse-api",
       "proxyUrl": "https://api.parse.com"
     }
- ],
- "gulpStartupTasks": [
+  ],
+  "gulpStartupTasks": [
     "default",
     "watch"
- ],
- "watchPatterns": [
+  ],
+  "watchPatterns": [
     "src/**/*",
     "!src/lib/**/*"
- ],
- "documentRoot": "src"
+  ],
+  "documentRoot": "www"
 }

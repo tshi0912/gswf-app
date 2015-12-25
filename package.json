@@ -1,8 +1,8 @@
 {
-  "name": "app",
+  "name": "gswf",
   "version": "1.0.0",
+  "description": "个人所得税服务平台",
   "private": true,
-  "description": "app: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

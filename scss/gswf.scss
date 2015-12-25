@@ -17,7 +17,7 @@
     }
 
     .query-filter{
-      top: $bar-height + $ios-statusbar-height;
+      top: $bar-height -1 + $ios-statusbar-height !important;
     }
 
   }
@@ -390,7 +390,7 @@ app-thumb {
   border-radius: 0 !important;
   width: 100% !important;
   left: 0 !important;
-  top: 44px !important;
+  top: $bar-height -1 !important;
   box-shadow: none !important;
 
   .scroll-content{

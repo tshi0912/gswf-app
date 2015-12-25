@@ -1,7 +1,8 @@
 (function () {
 
     angular.module('gswf')
-        .run(['$ionicPlatform', 'amMoment', function ($ionicPlatform, amMoment) {
+        .run(['$ionicPlatform', 'amMoment', '$cordovaStatusbar',
+            function ($ionicPlatform, amMoment, $cordovaStatusbar) {
 
             amMoment.changeLocale('zh-cn');
 
@@ -15,7 +16,8 @@
                 };
                 if (window.StatusBar) {
                     // org.apache.cordova.statusbar required
-                    StatusBar.styleLightContent();
+                    //StatusBar.styleLightContent();
+                    $cordovaStatusbar.style(3);
                 }
             });
         }]);
