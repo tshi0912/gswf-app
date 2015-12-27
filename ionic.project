@@ -1,12 +1,6 @@
 {
   "name": "gswf",
   "app_id": "51726bc4",
-  "proxies": [
-    {
-      "path": "/parse-api",
-      "proxyUrl": "https://api.parse.com"
-    }
-  ],
   "gulpStartupTasks": [
     "default",
     "watch"

@@ -40,10 +40,11 @@
     "org.apache.cordova.device",
     "org.apache.cordova.console",
     "org.apache.cordova.splashscreen",
-    "com.ionic.keyboard",
+    "ionic-plugin-keyboard",
     "cordova-plugin-whitelist",
     "cordova-plugin-camera",
     "cordova-plugin-file",
+    "cordova-plugin-statusbar",
     "cordova-plugin-file-transfer"
   ],
   "scripts": {

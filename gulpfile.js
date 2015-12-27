@@ -30,6 +30,7 @@ var gulpif = require('gulp-if');
 var minifyHtml = require('gulp-minify-html');
 var templateCache = require('gulp-angular-templatecache');
 var inject = require('gulp-inject');
+var fs = require('fs');
 
 //
 // === PATHS ===
@@ -50,6 +51,7 @@ var files = {
 };
 // Paths
 var paths = {
+    ioconfig: ['./src/lib/ionic-platform-web-client/dist/'],
     sass: ['./scss/**/*.scss'],
     css: ['./src/css/**/*.css'],
     mock: ['./src/mock/**/*.*'],
@@ -75,6 +77,7 @@ var paths = {
     ionicfonts: ['./src/lib/ionic/fonts/*'],
     lib: [
         './src/lib/ionic/js/ionic.bundle.js',
+        './src/lib/ionic-platform-web-client/dist/ionic.io.bundle.js',
         './src/lib/ion-image-lazy-load/ionic-image-lazy-load.js',
         './src/lib/underscore/underscore.js',
         './src/lib/moment/moment.js',
@@ -290,6 +293,20 @@ gulp.task('copy', ['clean', 'sass'], function () {
 
     gulp.src(paths.mock, {base: './src/mock'})
         .pipe(gulp.dest(paths.dist + '/mock'));
+});
+
+// update io config
+gulp.task('ioconfig', function () {
+    var src = paths.ioconfig[0] + 'ionic.io.bundle*.js';
+    var ioconfig = fs.readFileSync(".io-config.json", "utf8").slice();
+    var start = '"IONIC_SETTINGS_STRING_START";var settings =';
+    var end =  '; return { get: function(setting) { if (settings[setting]) { return settings[setting]; } return null; } };"IONIC_SETTINGS_STRING_END"';
+    var replaceBy = start + ioconfig + end;
+
+    log('inject .io-config in ionic.io.bundle.js');
+    gulp.src(src)
+        .pipe(replace(/"IONIC_SETTINGS_STRING_START.*IONIC_SETTINGS_STRING_END"/, replaceBy))
+        .pipe(gulp.dest(paths.ioconfig[0]));
 });
 
 //
