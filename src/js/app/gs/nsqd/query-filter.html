@@ -1,0 +1,26 @@
+<ion-popover-view class="query-filter nsqd-query">
+        <ion-list>
+            <a class="item item-input">
+                <span>起始日期</span>
+                <input type="month" placeholder="年/月" ng-model="vm.queryEdit.startMonth"
+                       value="{{vm.query.startMonth | monthInput}}">
+            </a>
+            <a class="item item-input">
+                <span>截止日期</span>
+                <input type="month" placeholder="年/月" ng-model="vm.queryEdit.endMonth"
+                       value="{{vm.query.endMonth | monthInput}}">
+            </a>
+        </ion-list>
+        <div class="pin-box" ng-click="vm.hideFilter($event);"></div>
+        <div class="tail-box">
+            <div class="divider-box">
+                <div class="vertical divider light"></div>
+            </div>
+            <button class="button button-light" ng-click="vm.hideFilter($event);">
+                <i ng-class="{
+                    'ion-ios-close-empty': !vm.queryChanged,
+                    'ion-ios-checkmark-empty': vm.queryChanged
+                }"></i>
+            </button>
+        </div>
+</ion-popover-view>

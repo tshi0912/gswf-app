@@ -12,6 +12,7 @@
     function gsService(gsApi, sessionService, _) {
 
         var gslist = [],
+            nsqdlist = [],
             kjywrs = [];
 
         return {
@@ -26,12 +27,33 @@
                 }
             },
 
+            loadNsqd: function(params){
+                var self = this;
+                if(_.isEmpty(kjywrs)){
+                    this.getKjywrs()
+                        .success(function(d){
+                            self.queryNsqd(params.query);
+                        });
+                }
+            },
+
             getKjywrs: function(){
                 return gsApi.getKjywrs(sessionService.getSignInUser().id)
                     .success(function (items) {
                         kjywrs.length = 0;
                         _.each(items, function (item) {
                             kjywrs.push(item);
+                        });
+                    });
+            },
+
+            queryNsqd: function (query) {
+
+                return gsApi.queryNsqd(sessionService.getSignInUser().id)
+                    .success(function (items) {
+                        nsqdlist.length = 0;
+                        _.each(items, function (item) {
+                            nsqdlist.push(item);
                         });
                     });
             },
@@ -75,10 +97,23 @@
                 return kjywrs;
             },
 
+            nsqds: function(){
+                return nsqdlist;
+            },
+
             get: function (gsId) {
                 for (var i = 0; i < gslist.length; i++) {
                     if (gslist[i].id === parseInt(gsId)) {
                         return gslist[i];
+                    }
+                }
+                return null;
+            },
+
+            getNsqd: function (gsId) {
+                for (var i = 0; i < nsqdlist.length; i++) {
+                    if (nsqdlist[i].id === parseInt(gsId)) {
+                        return nsqdlist[i];
                     }
                 }
                 return null;

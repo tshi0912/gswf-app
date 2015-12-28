@@ -466,14 +466,8 @@ app-thumb {
 }
 
 /*** gs module ****/
-.gscx-view {
-  .gs-list {
-    .gs-item:first-child {
-      > .item {
-        border-top: none;
-      }
-    }
-  }
+.gscx-view,
+.nsqd-view{
   .title {
     .button {
       margin: 0;
@@ -528,6 +522,14 @@ app-thumb {
     &.ng-hide-add,
     &.ng-hide-remove {
       transition: all linear 0.2s;
+    }
+  }
+}
+
+.gs-list {
+  .gs-item:first-child {
+    > .item {
+      border-top: none;
     }
   }
 }
