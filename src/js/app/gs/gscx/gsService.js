@@ -24,6 +24,8 @@
                         .success(function(d){
                             self.query(params.query);
                         });
+                }else{
+                    self.query(params.query);
                 }
             },
 
@@ -34,6 +36,8 @@
                         .success(function(d){
                             self.queryNsqd(params.query);
                         });
+                }else{
+                    self.queryNsqd(params.query);
                 }
             },
 
