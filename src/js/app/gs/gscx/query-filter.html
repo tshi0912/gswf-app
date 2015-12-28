@@ -17,11 +17,11 @@
                 <i class="icon ion-ios-more"></i>
             </a>
         </ion-list>
-        <div class="tail-box" ng-click="vm.hideFilter($event);">
+        <div class="tail-box">
             <div class="divider-box">
                 <div class="vertical divider light"></div>
             </div>
-            <button class="button button-light">
+            <button class="button button-light" ng-click="vm.hideFilter($event);">
                 <i ng-class="{
                     'ion-ios-close-empty': !vm.queryChanged,
                     'ion-ios-checkmark-empty': vm.queryChanged

@@ -16,11 +16,20 @@
       }
     }
 
-    .query-filter{
+    .query-filter {
       top: $bar-height -1 + $ios-statusbar-height !important;
     }
 
   }
+}
+
+@font-face {
+  font-family: 'fjalla';
+  src: url('../fjalla.eot');
+  src: url('../fjalla.eot?#iefix') format('embedded-opentype'),
+  url('../fjalla.woff') format('woff'),
+  url('../fjalla.ttf') format('truetype'),
+  url('../fjalla.svg#webfont') format('svg');
 }
 
 .none-border {
@@ -147,7 +156,7 @@ ion-content {
   left: 16px;
 }
 
-.checker{
+.checker {
   display: inline-block;
   border-radius: 50%;
   text-align: center;
@@ -157,36 +166,36 @@ ion-content {
   background-color: transparent;
   border: 1px solid $light-gray;
   font-size: 15px;
-  width: 32px;
-  height: 32px;
-  line-height: 30px;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
 
-  .icon{
-    font-size: 30px;
+  .icon {
+    font-size: 18px;
   }
 }
 
 .item.selected {
-  .checker{
+  .checker {
     color: $light;
     background-color: $positive;
     border-color: $positive;
   }
 }
 
-.item.selected{
+.item.selected {
   background-color: #dff8ff;
 }
 
 .item-checker,
 .item-checker > .item-content {
-  padding-left: 60px;
+  padding-left: 45px;
 }
 
 .item-checker > .checker,
 .item-checker > .item-content > .checker {
   position: absolute;
-  top: 6px;
+  top: 12px;
   left: 16px;
 }
 
@@ -324,14 +333,14 @@ app-thumb {
   background-color: #000;
 }
 
-.divider{
+.divider {
   margin: 1rem 0;
   line-height: 1;
   height: 0;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .05em;
-  color: rgba(0,0,0,.85);
+  color: rgba(0, 0, 0, .85);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -339,7 +348,8 @@ app-thumb {
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
 }
-.vertical.divider{
+
+.vertical.divider {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -355,36 +365,36 @@ app-thumb {
   transform: translateX(-50%);
 
   &:after,
-  &:before{
+  &:before {
     position: absolute;
     left: 50%;
     content: '';
     z-index: 3;
-    border-left: 1px solid rgba(34,36,38,.15);
+    border-left: 1px solid rgba(34, 36, 38, .15);
     width: 0;
     height: 100%;
   }
 
-  &:before{
+  &:before {
     top: -100%;
   }
 
-  &:after{
+  &:after {
     top: auto;
     bottom: 0;
   }
 
   &.light:after,
-  &.light:before{
+  &.light:before {
     border-color: $light;
   }
 }
 
-.popover-backdrop.active{
+.popover-backdrop.active {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.query-filter{
+.query-filter {
   margin: 0;
   background-color: transparent !important;
   border-radius: 0 !important;
@@ -393,37 +403,37 @@ app-thumb {
   top: $bar-height -1 !important;
   box-shadow: none !important;
 
-  .scroll-content{
+  .scroll-content {
     margin: 0 !important;
     border-radius: 0 !important;
 
-    ion-list .list{
+    ion-list .list {
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
     }
   }
 
-  .popover-arrow{
+  .popover-arrow {
     display: none;
   }
-  .item-input{
-    input[type="month"]{
+  .item-input {
+    input[type="month"] {
       text-align: right;
       padding-right: 16px;
       color: #666;
     }
   }
-  .item-note{
+  .item-note {
     color: #666;
   }
-  .tail-box{
+  .tail-box {
     text-align: center;
 
-    .divider-box{
+    .divider-box {
       position: relative;
       min-height: 50px;
     }
 
-    .button{
+    .button {
       border-radius: 50%;
       height: 50px;
       width: 50px;
@@ -439,62 +449,68 @@ app-thumb {
   }
 }
 
-
 /*** gs module ****/
 .gscx-view {
   .gs-list {
+    .gs-item:first-child {
+      > .item {
+        border-top: none;
+      }
+    }
   }
-  .title{
-    .button{
+  .title {
+    .button {
       margin: 0;
       height: 100%;
       font-size: 17px;
       font-weight: 500;
-      .icon{
+      .icon {
         position: absolute;
         left: 50%;
         top: 20px;
         margin-left: -6px;
-        &:before{
+        &:before {
           font-size: 12px;
         }
-        &.open{
+        &.open {
           -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
         }
         &.open-add,
-        &.open-remove{
+        &.open-remove {
           transition: all linear 0.2s;
         }
       }
     }
   }
-  ion-footer-bar{
+  ion-footer-bar {
     padding: 0;
     display: block;
     text-align: right;
-    .sk-total{
+    .sk-total {
       line-height: 44px;
     }
-    .total{
-      font-size: 20px
+    .total {
+      font-size: 22px;
+      font-weight: 500;
+      font-family: 'fjalla';
     }
-    .button{
+    .button {
       height: 100%;
       line-height: 100%;
       border-radius: 0;
       border: none;
-      min-width : 150px;
+      min-width: 160px;
       font-size: 16px;
       margin-left: 20px;
     }
   }
-  .back-button{
+  .back-button {
     &.ng-hide {
       opacity: 0;
     }
     &.ng-hide-add,
-    &.ng-hide-remove{
+    &.ng-hide-remove {
       transition: all linear 0.2s;
     }
   }
@@ -504,7 +520,7 @@ app-thumb {
   background-color: $light;
   height: 68px;
   transition: height linear 0.2s;
-  &.open{
+  &.open {
     height: 180px;
   }
 
@@ -518,17 +534,17 @@ app-thumb {
     }
     .icon {
       font-size: 20px;
-      &.open{
+      &.open {
         -webkit-transform: rotate(180deg);
         transform: rotate(180deg);
       }
       &.open-add,
-      &.open-remove{
+      &.open-remove {
         transition: all linear 0.2s;
       }
     }
   }
-  .detail{
+  .detail {
     margin-left: 16px;
     margin-right: 16px;
     padding-top: 10px;
@@ -536,31 +552,31 @@ app-thumb {
     border-top: 1px solid $stable;
     color: #888;
     display: none;
-    .label{
+    .label {
       min-width: 100px;
       display: inline-block;
     }
-    &.open{
+    &.open {
       display: block;
     }
   }
 }
 
-.gscx-query{
+.gscx-query {
   height: 240px;
   overflow: hidden;
   ion-content {
     transform: translate3d(0, -240px, 0);
   }
-  &.ng-enter{
-    ion-content{
-      transform: translate3d(0,0px,0);
+  &.ng-enter {
+    ion-content {
+      transform: translate3d(0, 0px, 0);
       transition: transform linear 0.2s;
     }
   }
-  &.ng-leave{
-    ion-content{
-      transform: translate3d(0,-240px,0);
+  &.ng-leave {
+    ion-content {
+      transform: translate3d(0, -240px, 0);
       transition: transform linear 0.2s;
     }
   }

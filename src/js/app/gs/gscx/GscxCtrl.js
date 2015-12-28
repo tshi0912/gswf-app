@@ -49,7 +49,8 @@
         },true);
 
         $ionicPopover.fromTemplateUrl('js/app/gs/gscx/query-filter.html', {
-            scope: $scope
+            scope: $scope,
+            backdropClickToClose: false
         }).then(function (popover) {
             vm.filter = popover;
         });
