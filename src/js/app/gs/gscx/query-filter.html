@@ -1,5 +1,4 @@
 <ion-popover-view class="query-filter gscx-query">
-    <ion-content>
         <ion-list>
             <a class="item item-input">
                 <span>起始日期</span>
@@ -17,6 +16,7 @@
                 <i class="icon ion-ios-more"></i>
             </a>
         </ion-list>
+        <div class="pin-box" ng-click="vm.hideFilter($event);"></div>
         <div class="tail-box">
             <div class="divider-box">
                 <div class="vertical divider light"></div>
@@ -28,5 +28,4 @@
                 }"></i>
             </button>
         </div>
-    </ion-content>
 </ion-popover-view>

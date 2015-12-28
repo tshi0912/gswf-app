@@ -54,6 +54,7 @@ var paths = {
     ioconfig: ['./src/lib/ionic-platform-web-client/dist/'],
     sass: ['./scss/**/*.scss'],
     css: ['./src/css/**/*.css'],
+    font: ['./src/font/**/*.*'],
     mock: ['./src/mock/**/*.*'],
     boot: ['./src/js/app/boot.js'],
     scripts: [
@@ -287,6 +288,9 @@ gulp.task('copy', ['clean', 'sass'], function () {
 
     gulp.src(paths.locales, {base: './src'})
         .pipe(gulp.dest(paths.dist + '/.'));
+
+    gulp.src(paths.font, {base: './src/font'})
+        .pipe(gulp.dest(paths.dist + '/font'));
 
     gulp.src(paths.boot, {base: './src'})
         .pipe(gulp.dest(paths.dist + '/.'));

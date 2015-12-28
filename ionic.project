@@ -9,5 +9,5 @@
     "src/**/*",
     "!src/lib/**/*"
   ],
-  "documentRoot": "www"
+  "documentRoot": "src"
 }
