@@ -54,6 +54,7 @@
 
         vm.tryToQuery = function () {
             if (!_.isEqual(vm.query, vm.queryEdit)) {
+                _.extend(vm.query, vm.queryEdit);
                 vm.queryChanged = false;
                 gsService.queryNsqd(vm.query);
             }

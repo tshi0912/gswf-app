@@ -56,7 +56,7 @@
 
     function dateTimeLabelFilter() {
         return function (input) {
-            return moment(input).format('YYYY年MM月 hh:mm:ss');
+            return moment(input).format('YYYY-MM-DD hh:mm:ss');
         };
     };
 

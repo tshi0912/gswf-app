@@ -23,7 +23,7 @@
   }
 }
 
-.none-border.bar.bar-dark{
+.none-border.bar.bar-dark {
   background-image: none;
 }
 
@@ -407,7 +407,7 @@ app-thumb {
   top: 44px !important;
   box-shadow: none !important;
 
-  &.ng-enter-active{
+  &.ng-enter-active {
     overflow: visible;
   }
 
@@ -433,7 +433,7 @@ app-thumb {
   .item-note {
     color: #666;
   }
-  .pin-box{
+  .pin-box {
     position: absolute;
     left: 50%;
     width: 100px;
@@ -467,7 +467,7 @@ app-thumb {
 
 /*** gs module ****/
 .gscx-view,
-.nsqd-view{
+.nsqd-view {
   .title {
     .button {
       margin: 0;
@@ -580,7 +580,7 @@ app-thumb {
   }
 }
 
-.profile-item{
+.profile-item {
   padding-top: 44px;
 }
 
@@ -607,20 +607,35 @@ app-thumb {
   //}
 }
 
-.nsqd-item.card{
-  .item-divider{
+.nsqd-item.card {
+  .item-divider {
     background-color: #fff;
     font-weight: normal;
     color: #666;
-    .item-note{
+    .item-note {
       font-weight: bold;
     }
   }
-  .item-text-wrap{
+  .item-text-wrap {
     padding-top: 20px;
     padding-bottom: 20px;
-    >h2{
+    > h2 {
       font-weight: bold;
+    }
+  }
+}
+
+.nsqd-detail-view {
+  .fw-list {
+    display: inline-block;
+    float: right;
+    color: #aaa;
+  }
+  ion-footer-bar {
+    padding: 0;
+    .button {
+      margin: 0;
+      padding: 0;
     }
   }
 }

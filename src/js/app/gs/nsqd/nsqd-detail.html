@@ -1,0 +1,30 @@
+<ion-view view-title="清单详情" class="nsqd-detail-view">
+    <ion-content>
+        <ion-list>
+            <div class="item item-divider"></div>
+            <ion-item>
+                <span>税款所属期</span>
+                <span class="item-note">{{vm.nsqd.skksq | monthLabel}} - {{vm.nsqd.skjsq | monthLabel}}</span>
+            </ion-item>
+            <ion-item>
+                <span>申请打印范围</span>
+                <ul class="fw-list">
+                    <li ng-repeat="fw in vm.nsqd.sqfw">
+                        {{fw.name}}
+                    </li>
+                </ul>
+            </ion-item>
+            <ion-item>
+                <span>申请日期</span>
+                <span class="item-note">{{vm.nsqd.sqrq | dateTimeLabel}}</span>
+            </ion-item>
+            <ion-item>
+                <span>状态</span>
+                <span class="item-note {{vm.nsqd.status | statusColor}}">{{vm.nsqd.status}}</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-light">
+        <button class="button button-block button-clear button-calm">下载纳税清单</button>
+    </ion-footer-bar>
+</ion-view>

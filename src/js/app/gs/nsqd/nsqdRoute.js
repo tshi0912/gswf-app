@@ -17,6 +17,15 @@
                         controller: 'NsqdCtrl as vm'
                     }
                 }
+            })
+            .state('app.nsqdDetail', {
+                url: '/nsqd/:nsqdId',
+                views: {
+                    'mainContent': {
+                        templateUrl: 'js/app/gs/nsqd/nsqd-detail.html',
+                        controller: 'NsqdDetailCtrl as vm'
+                    }
+                }
             });
     };
 })();

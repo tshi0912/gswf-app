@@ -56,9 +56,45 @@
                 return gsApi.queryNsqd(sessionService.getSignInUser().id, query)
                     .success(function (items) {
                         nsqdlist.length = 0;
-                        _.each(items, function (item) {
-                            nsqdlist.push(item);
-                        });
+                        //_.each(items, function (item) {
+                        //    nsqdlist.push(item);
+                        //});
+
+                        // Mock Handle
+                        var len = moment(query.endMonth).diff(moment(query.startMonth), 'months') + 1,
+                            seed1, seed2, nsqd, kjywr,
+                            status = ['已打印','未打印','已过期'];
+                        for(var i=0; i<len; i++){
+                            nsqd = {};
+                            nsqd.id = i+1;
+                            nsqd.sqfw = [];
+                            seed1 = Math.round(Math.random()*10 % 3) + 1;
+                            do{
+                                seed2 = Math.round(Math.random()*10 % 3);
+                                kjywr = kjywrs[seed2];
+                                if(kjywr.id === -1 && nsqd.sqfw.length !==0){
+                                    break;
+                                }else if(kjywr.id === -1){
+                                    nsqd.sqfw.push(kjywrs[seed2]);
+                                    break;
+                                }else if(!_.contains(nsqd.sqfw, kjywr)){
+                                    nsqd.sqfw.push(kjywrs[seed2]);
+                                }
+                                seed1--;
+                            }while(seed1 > 0);
+
+                            seed1 = Math.round(Math.random()* len/2) ;
+                            seed2 = Math.min(len - Math.round(Math.random()* len/2), len-1) ;
+
+                            nsqd.skksq = moment(query.startMonth).add(seed1,'months').toDate();
+                            nsqd.skjsq = moment(query.startMonth).add(seed2,'months').toDate();
+                            nsqd.sqrq = moment().toDate();
+
+                            seed1 = Math.min(2,Math.max(0,Math.round(Math.random()*10 % 3)));
+                            nsqd.status = status[seed1];
+
+                            nsqdlist.push(nsqd);
+                        }
                     });
             },
 
