@@ -8,6 +8,8 @@
         .filter('kjywr', kjywrFilter)
         .filter('monthInput', monthInputFilter)
         .filter('monthLabel', monthLabelFilter)
+        .filter('dateTimeLabel', dateTimeLabelFilter)
+        .filter('statusColor', statusColorFilter)
         .filter('numberFix', numberFixFilter);
 
     function kjywrFilter() {
@@ -22,14 +24,15 @@
                 if (i !== 0) {
                     out += ',';
                 }
-                for (var j = 0; j < input[i].name.length; j++) {
-                    out += input[i].name.charAt(j);
+                var name = input[i].name || input[i];
+                for (var j = 0; j < name.length; j++) {
+                    out += name.charAt(j);
                     if (maxchars && out.length > maxchars) {
                         if (input.length - i > 1) {
                             out += ' 等' + input.length + '家';
                         }
                         break;
-                    } else if (!maxchars && i === 0 && j === input[i].name.length-1 && input.length - i > 1) {
+                    } else if (!maxchars && i === 0 && j === name.length-1 && input.length - i > 1) {
                         out += ' 等' + input.length + '家';
                     }
                 }
@@ -48,6 +51,32 @@
     function monthLabelFilter() {
         return function (input) {
             return moment(input).format('YYYY年MM月');
+        };
+    };
+
+    function dateTimeLabelFilter() {
+        return function (input) {
+            return moment(input).format('YYYY年MM月 hh:mm:ss');
+        };
+    };
+
+    function statusColorFilter() {
+        return function (input) {
+            var color = '';
+            switch (input){
+                case '已打印':
+                    color =  'balanced';
+                    break;
+                case '未打印':
+                    color =  'energized';
+                    break;
+                case '已过期':
+                    color =  'assertive';
+                    break;
+                default:
+                    break;
+            }
+            return color;
         };
     };
 

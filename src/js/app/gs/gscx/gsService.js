@@ -53,7 +53,7 @@
 
             queryNsqd: function (query) {
 
-                return gsApi.queryNsqd(sessionService.getSignInUser().id)
+                return gsApi.queryNsqd(sessionService.getSignInUser().id, query)
                     .success(function (items) {
                         nsqdlist.length = 0;
                         _.each(items, function (item) {

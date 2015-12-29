@@ -606,3 +606,21 @@ app-thumb {
   //  }
   //}
 }
+
+.nsqd-item.card{
+  .item-divider{
+    background-color: #fff;
+    font-weight: normal;
+    color: #666;
+    .item-note{
+      font-weight: bold;
+    }
+  }
+  .item-text-wrap{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    >h2{
+      font-weight: bold;
+    }
+  }
+}

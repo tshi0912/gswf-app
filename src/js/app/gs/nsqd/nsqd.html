@@ -9,5 +9,8 @@
             <i class="icon ion-ios-arrow-down" ng-class="{open: vm.filterShown}"></i></button>
     </ion-nav-title>
     <ion-content>
+        <ion-list class="gs-list">
+            <div class="nsqd-item card" ng-repeat="nsqd in vm.nsqds" ng-class="{open: nsqd.opened}"></div>
+        </ion-list>
     </ion-content>
 </ion-view>

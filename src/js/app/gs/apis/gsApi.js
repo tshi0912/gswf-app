@@ -33,8 +33,8 @@
             return $http.get(gsUri.QUERY_USER_GS.replace('{userId}', userId));
         };
 
-        function queryNsqd(userId) {
-            return $http.get(gsUri.QUERY_USER_GS.replace('{userId}', userId));
+        function queryNsqd(userId, parans) {
+            return $http.get(gsUri.QUERY_USER_NSQD.replace('{userId}', userId));
         };
 
         function validateQr(){
