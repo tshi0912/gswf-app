@@ -7,9 +7,9 @@
     appModule('gswf.gs')
         .factory('gsService', gsService);
     // 申明依赖
-    gsService.$inject = ['gsApi', 'sessionService','_'];
+    gsService.$inject = ['gsApi', 'sessionService','_','$q'];
 
-    function gsService(gsApi, sessionService, _) {
+    function gsService(gsApi, sessionService, _, $q) {
 
         var gslist = [],
             nsqdlist = [],
@@ -21,7 +21,7 @@
                 var self = this;
                 if(_.isEmpty(kjywrs)){
                     this.getKjywrs()
-                        .success(function(d){
+                        .then(function(d){
                             self.query(params.query);
                         });
                 }else{
@@ -33,7 +33,7 @@
                 var self = this;
                 if(_.isEmpty(kjywrs)){
                     this.getKjywrs()
-                        .success(function(d){
+                        .then(function(d){
                             self.queryNsqd(params.query);
                         });
                 }else{
@@ -42,19 +42,28 @@
             },
 
             getKjywrs: function(){
-                return gsApi.getKjywrs(sessionService.getSignInUser().id)
-                    .success(function (items) {
-                        kjywrs.length = 0;
-                        _.each(items, function (item) {
-                            kjywrs.push(item);
+                var deferred = $q.defer();
+                if(!_.isEmpty(kjywrs)){
+                    deferred.resolve(kjywrs);
+                }else {
+                    gsApi.getKjywrs(sessionService.getSignInUser().id)
+                        .then(function (items) {
+                            kjywrs.length = 0;
+                            _.each(items, function (item) {
+                                kjywrs.push(item);
+                            });
+                            deferred.resolve(kjywrs);
+                        }, function (reason) {
+                            deferred.reject(reason);
                         });
-                    });
+                }
+                return deferred.promise;
             },
 
             queryNsqd: function (query) {
 
                 return gsApi.queryNsqd(sessionService.getSignInUser().id, query)
-                    .success(function (items) {
+                    .then(function (items) {
                         nsqdlist.length = 0;
                         //_.each(items, function (item) {
                         //    nsqdlist.push(item);
@@ -98,10 +107,17 @@
                     });
             },
 
+            saveNsqd: function(nsqd){
+                return gsApi.saveNsqd(sessionService.getSignInUser().id, nsqd)
+                    .then(function(d){
+                        nsqdlist.splice(0,0,nsqd);
+                    });
+            },
+
             query: function (query) {
 
                 return gsApi.queryGs(sessionService.getSignInUser().id, query)
-                    .success(function (items) {
+                    .then(function (items) {
                         gslist.length = 0;
                         //_.each(items, function (item) {
                         //    gslist.push(item);

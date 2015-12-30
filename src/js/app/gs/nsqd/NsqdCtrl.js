@@ -4,9 +4,9 @@
 (function () {
     appModule('gswf.gs')
         .controller('NsqdCtrl', NsqdCtrl);
-    NsqdCtrl.$inject = ['$scope', 'gsService', '$ionicPopover'];
+    NsqdCtrl.$inject = ['$scope', 'gsService', '$ionicPopover', '$state'];
 
-    function NsqdCtrl($scope, gsService, $ionicPopover) {
+    function NsqdCtrl($scope, gsService, $ionicPopover, $state) {
         console.log('NsqdCtrl');
         var vm = this;
         vm.nsqds = gsService.nsqds();
@@ -58,6 +58,10 @@
                 vm.queryChanged = false;
                 gsService.queryNsqd(vm.query);
             }
+        };
+
+        vm.goToAddNsqd = function(){
+            $state.go('app.addNsqd');
         };
 
         gsService.loadNsqd({query: vm.query});

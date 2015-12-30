@@ -16,7 +16,7 @@
         return {
 
             load: function () {
-                return msgApi.getMsgs().success(function (items) {
+                return msgApi.getMsgs().then(function (items) {
                     msgs.length = 0;
                     _.each(items, function(item){
                         msgs.push(item);

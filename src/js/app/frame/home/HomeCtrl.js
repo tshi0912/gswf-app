@@ -39,5 +39,8 @@
     vm.openScan = function () {
       $state.go('app.scan')
     };
+    vm.openAdd = function(){
+      $state.go('app.addNsqd');
+    };
   }
 })();

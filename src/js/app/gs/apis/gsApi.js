@@ -21,7 +21,8 @@
             queryGs: queryGs,
             queryNsqd: queryNsqd,
             validateQr: validateQr,
-            getKjywrs: getKjywrs
+            getKjywrs: getKjywrs,
+            saveNsqd: saveNsqd
         };
 
         /**
@@ -33,7 +34,7 @@
             return $http.get(gsUri.QUERY_USER_GS.replace('{userId}', userId));
         };
 
-        function queryNsqd(userId, parans) {
+        function queryNsqd(userId, params) {
             return $http.get(gsUri.QUERY_USER_NSQD.replace('{userId}', userId));
         };
 
@@ -43,6 +44,11 @@
 
         function getKjywrs(userId){
             return $http.get(gsUri.GET_USER_KJYWRS.replace('{userId}', userId));
+        }
+
+        function saveNsqd(userId, nsqd){
+            nsqd.createdBy = userId;
+            return $http.get(gsUri.SAVE_NSQD.replace('{userId}', userId));
         }
         
         return gsApi;

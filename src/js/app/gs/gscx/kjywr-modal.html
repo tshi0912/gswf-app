@@ -1,25 +1,25 @@
 <ion-modal-view view-title="请选择扣缴义务人">
     <ion-header-bar class="bar-dark">
         <div class="buttons">
-            <button class="button button-clear" ng-click="vm.closeKjywr()">
+            <button class="button button-clear" ng-click="closeKjywr()">
                 <i class="icon ion-ios-close-empty"></i>
             </button>
         </div>
         <h1 class="title">请选择扣缴义务人</h1>
         <div class="buttons">
-            <button class="button button-clear" ng-click="vm.confirmKjywrs()">确定</button>
+            <button class="button button-clear" ng-click="confirmKjywrs()">确定</button>
         </div>
     </ion-header-bar>
     <ion-content>
         <ion-list>
             <ion-item class="item item-divider"></ion-item>
-            <ion-item class="item-checker" ng-click="vm.toggleKjywr(vm.allKjywr)" ng-class="{selected: vm.allKjywr.selected}">
+            <ion-item class="item-checker" ng-click="toggleKjywr(allKjywr)" ng-class="{selected: allKjywr.selected}">
                 <i class="checker"><i class="icon ion-ios-checkmark-empty"></i></i>
-                {{vm.allKjywr.name}}
+                {{allKjywr.name}}
             </ion-item>
             <ion-item class="item item-divider">可选扣缴义务人</ion-item>
-            <ion-item class="item-checker" ng-repeat="kjywr in vm.kjywrs"
-                      ng-click="vm.toggleKjywr(kjywr)" ng-class="{selected: kjywr.selected}">
+            <ion-item class="item-checker" ng-repeat="kjywr in kjywrs"
+                      ng-click="toggleKjywr(kjywr)" ng-class="{selected: kjywr.selected}">
                 <i class="checker"><i class="icon ion-ios-checkmark-empty"></i></i>
                 {{kjywr.name}}
             </ion-item>

@@ -38,7 +38,7 @@
                 }
             }
             out += ''
-            return out;
+            return out || '请选择扣缴义务人';
         };
     };
 

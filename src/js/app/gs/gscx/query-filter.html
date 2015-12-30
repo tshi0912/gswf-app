@@ -10,11 +10,7 @@
                 <input type="month" placeholder="年/月" ng-model="vm.queryEdit.endMonth"
                        value="{{vm.query.endMonth | monthInput}}">
             </a>
-            <a class="item item-icon-right" ng-click="vm.openKjywr();">
-                <span>扣缴义务人</span>
-                <span class="item-note">{{vm.queryEdit.kjywrs | kjywr}}</span>
-                <i class="icon ion-ios-more"></i>
-            </a>
+            <a class="item item-icon-right" kjywr-input targets="vm.queryEdit.kjywrs"></a>
         </ion-list>
         <div class="pin-box" ng-click="vm.hideFilter($event);"></div>
         <div class="tail-box">

@@ -40,6 +40,10 @@
   border: none;
 }
 
+a.item{
+  color: $dark;
+}
+
 .pane, .view, .modal {
   background-color: $light-gray;
 }
@@ -423,13 +427,6 @@ app-thumb {
   .popover-arrow {
     display: none;
   }
-  .item-input {
-    input[type="month"] {
-      text-align: right;
-      padding-right: 16px;
-      color: #666;
-    }
-  }
   .item-note {
     color: #666;
   }
@@ -462,6 +459,15 @@ app-thumb {
       padding: 0;
       font-size: 38px;
     }
+  }
+}
+
+
+.item-input {
+  input[type="month"] {
+    text-align: right;
+    padding-right: 16px;
+    color: #666;
   }
 }
 

@@ -32,7 +32,7 @@
                 if (data.code === "NACK") {
                     $cordovaDialogs.alert(data.message, data.message, "确认");
                 }
-                return data;
+                return $q.when(data.data);
             } else {
                 return response || $q.when(response);
             }

@@ -23,7 +23,7 @@
                 } else {
                     promise = appApi.getDefaultApps();
                 }
-                return promise.success(function (items) {
+                return promise.then(function (items) {
                     mines.length = 0;
                     _.each(items, function(item){
                         mines.push(item);

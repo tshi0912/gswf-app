@@ -1,0 +1,31 @@
+<ion-view view-title="申请纳税清单" class="add-nsqd-view">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="vm.addNsqd();">确定</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <div class="item item-divider"></div>
+            <ion-item class="item-input">
+                <span>税款起始日期</span>
+                <input type="month" placeholder="年/月" ng-model="vm.nsqd.skksq"
+                       value="{{vm.nsqd.skksq | monthInput}}">
+            </ion-item>
+            <ion-item class="item-input">
+                <span>税款结束日期</span>
+                <input type="month" placeholder="年/月" ng-model="vm.nsqd.skjsq"
+                       value="{{vm.nsqd.skjsq | monthInput}}">
+            </ion-item>
+            <a class="item item-icon-right" kjywr-input targets="vm.nsqd.sqfw" class="item-icon-right"></a>
+            <div class="item item-divider"></div>
+            <ion-item class="item-toggle">
+                <span>发送邮件</span>
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-checked="vm.nsqd.sendMail" ng-model="vm.nsqd.sendMail">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

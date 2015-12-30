@@ -18,6 +18,15 @@
                     }
                 }
             })
+            .state('app.addNsqd', {
+                url: '/nsqd/add',
+                views: {
+                    'mainContent': {
+                        templateUrl: 'js/app/gs/nsqd/nsqd-add.html',
+                        controller: 'AddNsqdCtrl as vm'
+                    }
+                }
+            })
             .state('app.nsqdDetail', {
                 url: '/nsqd/:nsqdId',
                 views: {

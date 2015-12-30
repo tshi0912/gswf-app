@@ -26,6 +26,7 @@
                  ****************/
                 QUERY_USER_GS:         'mock/user-gs.json',
                 QUERY_USER_NSQD:       'mock/user-nsqd.json',
+                SAVE_NSQD:             'mock/user-nsqd.json',
                 VALIDATE_QR:           'mock/user-validate-qr.json',
                 GET_USER_KJYWRS:       'mock/user-kjywrs.json'
             };
