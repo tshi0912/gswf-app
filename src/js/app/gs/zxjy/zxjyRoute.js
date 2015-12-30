@@ -17,6 +17,15 @@
                         controller: 'ZxjyCtrl as vm'
                     }
                 }
+            })
+            .state('app.sgjy', {
+                url: '/sgjy',
+                views: {
+                    'mainContent': {
+                        templateUrl: 'js/app/gs/zxjy/sgjy.html',
+                        controller: 'SgjyCtrl as vm'
+                    }
+                }
             });
     };
 })();

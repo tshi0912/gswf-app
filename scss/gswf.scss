@@ -464,8 +464,10 @@ app-thumb {
 
 
 .item-input {
-  input[type="month"] {
+  input{
     text-align: right;
+  }
+  input[type="month"] {
     padding-right: 16px;
     color: #666;
   }
@@ -643,5 +645,11 @@ app-thumb {
       margin: 0;
       padding: 0;
     }
+  }
+}
+
+.sgjy-view{
+  .button-full{
+    margin-top: 20px;
   }
 }

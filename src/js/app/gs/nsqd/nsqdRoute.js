@@ -20,6 +20,7 @@
             })
             .state('app.addNsqd', {
                 url: '/nsqd/add',
+                params: {nsqd: null},
                 views: {
                     'mainContent': {
                         templateUrl: 'js/app/gs/nsqd/nsqd-add.html',

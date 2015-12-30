@@ -38,7 +38,7 @@
             return $http.get(gsUri.QUERY_USER_NSQD.replace('{userId}', userId));
         };
 
-        function validateQr(){
+        function validateQr(userId){
             return $http.get(gsUri.VALIDATE_QR.replace('{userId}', userId));
         };
 

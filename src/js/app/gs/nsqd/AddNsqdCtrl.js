@@ -4,13 +4,13 @@
 (function () {
     appModule('gswf.gs')
         .controller('AddNsqdCtrl', AddNsqdCtrl);
-    AddNsqdCtrl.$inject = ['$scope', 'gsService', '$state'];
+    AddNsqdCtrl.$inject = ['$scope', 'gsService', '$state', '$stateParams'];
 
-    function AddNsqdCtrl($scope, gsService, $state) {
+    function AddNsqdCtrl($scope, gsService, $state, $stateParams) {
         console.log('AddNsqdCtrl');
 
         var vm = this;
-        vm.nsqd = {
+        vm.nsqd = $stateParams.nsqd || {
             skksq: moment().subtract(11, 'months').startOf('month').toDate(),
             skjsq: moment().startOf('month').toDate(),
             sqfw: [],

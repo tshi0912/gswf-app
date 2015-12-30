@@ -1,0 +1,22 @@
+<ion-view view-title="手工校验" class="sgjy-view">
+    <ion-content>
+        <ion-list>
+            <div class="item item-divider"></div>
+
+            <a class="item item-icon-right" ng-click="vm.selectZjlx();" href="javascript:void(0);">
+                <span>证件类型</span>
+                <span class="item-note">{{vm.sgjy.zjlx || '请选择证件类型'}}</span>
+                <i class="icon ion-ios-more"></i>
+            </a>
+            <ion-item class="item-input">
+                <span>证件号码</span>
+                <input type="text" placeholder="请输入证件号码" ng-model="vm.sgjy.zjhm" value="{{vm.sgjy.zjhm}}">
+            </ion-item>
+            <ion-item class="item-input">
+                <span>清单验证码</span>
+                <input type="text" placeholder="请输入清单验证码" ng-model="vm.sgjy.qdyzm" value="{{vm.sgjy.qdyzm}}">
+            </ion-item>
+            <button class="button button-full button-calm" ng-click="vm.validate();">校 验</button>
+        </ion-list>
+    </ion-content>
+</ion-view>

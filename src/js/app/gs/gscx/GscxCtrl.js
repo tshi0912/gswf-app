@@ -4,9 +4,9 @@
 (function () {
     appModule('gswf.gs')
         .controller('GscxCtrl', GscxCtrl);
-    GscxCtrl.$inject = ['$scope', '$ionicHistory', 'gsService', '_', '$ionicPopover', '$ionicModal'];
+    GscxCtrl.$inject = ['$scope', '$state', 'gsService', '_', '$ionicPopover'];
 
-    function GscxCtrl($scope, $ionicHistory, gsService, _, $ionicPopover, $ionicModal) {
+    function GscxCtrl($scope, $state, gsService, _, $ionicPopover) {
         console.log('GscxCtrl');
 
         var vm = this;
@@ -90,6 +90,16 @@
 
         vm.toggleDetail = function(gs){
             gs.opened = !gs.opened;
+        };
+
+        vm.goToAddNsqd = function(){
+            var nsqd = {
+                skksq: vm.query.startMonth,
+                skjsq: vm.query.endMonth,
+                sqfw: angular.copy(vm.query.kjywrs),
+                sendMail: true
+            }
+            $state.go('app.addNsqd', {nsqd: nsqd});
         };
 
         gsService.load({query: vm.query});
