@@ -45,7 +45,8 @@
     "cordova-plugin-camera",
     "cordova-plugin-file",
     "cordova-plugin-statusbar",
-    "cordova-plugin-file-transfer"
+    "cordova-plugin-file-transfer",
+    "phonegap-plugin-barcodescanner"
   ],
   "scripts": {
     "preupdate-webdriver": "npm install",
