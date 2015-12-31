@@ -93,11 +93,18 @@ ion-content {
     }
   }
 }
-
+.bar .button:after{
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  content: ' ';
+}
 .bar .button.back-button,
 .bar button.back-button {
-  font-size: 14px;
-  padding-left: 5px;
+  font-size: 15px;
+  padding-right: 8px;
 }
 
 .bar .button.back-button .icon:before,
@@ -208,7 +215,7 @@ ion-content {
 }
 
 .menu-box {
-  background-color: $stable;
+  background-color: $dark;
 
   .item {
     border: none;
@@ -216,6 +223,12 @@ ion-content {
 
     > a {
       background-color: transparent;
+      color: $light;
+    }
+
+    &.activated.item-complex > .item-content,
+    > .item-content.activated {
+      background-color: rgba(0,0,0,0.2);
     }
   }
   .item-complex.item-icon-left .item-content {
@@ -226,20 +239,31 @@ ion-content {
   }
   .item-icon-left .icon {
     left: 20px;
-    color: #aaa;
+    color: $gray;
     font-size: 20px;
   }
-  .list {
-    border-top: 1px solid $gray;
-  }
-  .profile-list {
-    .list {
-      border-top: none;
-    }
-  }
   .profile-item {
+    background-color: rgba(0,0,0,0.2);
     h3 {
       margin-top: 8px;
+      color: $light;
+    }
+    p{
+      color: $gray;
+    }
+  }
+
+  ion-list:nth-child(2){
+    .list{
+      margin-top: 10px;
+    }
+  }
+
+  ion-list:last-child{
+    .list{
+      border-top: 1px solid $darker;
+      margin-top: 10px;
+      padding-top: 10px;
     }
   }
 }
@@ -256,7 +280,6 @@ ion-content {
 }
 
 .bar.bar-dark {
-  background-color: #444;
   border-bottom: none;
 
   .button.button-clear,
@@ -268,7 +291,7 @@ ion-content {
 .home-view {
 
   .hero-box {
-    background-color: #444;
+    background-color: $dark;
     height: 166px;
     padding-top: 44px;
 
@@ -464,43 +487,41 @@ app-thumb {
 
 
 .item-input {
-  input{
-    text-align: right;
-  }
   input[type="month"] {
     padding-right: 16px;
     color: #666;
   }
 }
 
-/*** gs module ****/
-.gscx-view,
-.nsqd-view {
-  .title {
-    .button {
-      margin: 0;
-      height: 100%;
-      font-size: 17px;
-      font-weight: 500;
-      .icon {
-        position: absolute;
-        left: 50%;
-        top: 20px;
-        margin-left: -6px;
-        &:before {
-          font-size: 12px;
-        }
-        &.open {
-          -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-        }
-        &.open-add,
-        &.open-remove {
-          transition: all linear 0.2s;
-        }
+.nav-bar-title {
+  > .button.button-clear {
+    margin: 0;
+    height: 100%;
+    font-size: 17px;
+    font-weight: 500;
+    > .icon {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      margin-left: -6px;
+      &:before {
+        font-size: 12px;
+      }
+      &.open {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      &.open-add,
+      &.open-remove {
+        transition: all linear 0.2s;
       }
     }
   }
+}
+
+/*** gs module ****/
+.gscx-view,
+.nsqd-view {
   ion-footer-bar {
     padding: 0;
     display: block;

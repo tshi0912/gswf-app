@@ -2,12 +2,12 @@
         <ion-list>
             <a class="item item-input">
                 <span>起始日期</span>
-                <input type="month" placeholder="年/月" ng-model="vm.queryEdit.startMonth"
+                <input class="text-right" type="month" placeholder="年/月" ng-model="vm.queryEdit.startMonth"
                        value="{{vm.query.startMonth | monthInput}}">
             </a>
             <a class="item item-input">
                 <span>截止日期</span>
-                <input type="month" placeholder="年/月" ng-model="vm.queryEdit.endMonth"
+                <input class="text-right" type="month" placeholder="年/月" ng-model="vm.queryEdit.endMonth"
                        value="{{vm.query.endMonth | monthInput}}">
             </a>
             <a class="item item-icon-right" kjywr-input targets="vm.queryEdit.kjywrs"></a>

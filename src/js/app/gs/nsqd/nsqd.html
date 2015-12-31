@@ -1,14 +1,9 @@
 <ion-view view-title="纳税清单" class="nsqd-view">
-    <ion-nav-bar class="bar-dark">
-        <ion-nav-back-button class="button-clear" ng-show="!vm.filterShown">
-            <i class="icon ion-ios-arrow-left"></i> 返回
-        </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <button class="button button-clear" ng-click="vm.goToAddNsqd();">
-                <i class="icon ion-ios-plus-empty"></i>
-            </button>
-        </ion-nav-buttons>
-    </ion-nav-bar>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="vm.goToAddNsqd();">
+            <i class="icon ion-ios-plus-empty"></i>
+        </button>
+    </ion-nav-buttons>
     <ion-nav-title>
         <button class="button button-clear button-block" ng-click="vm.toggleFilter($event)">纳税清单
             <i class="icon ion-ios-arrow-down" ng-class="{open: vm.filterShown}"></i></button>
