@@ -481,6 +481,15 @@ app-thumb {
       color: $light;
       padding: 0;
       font-size: 38px;
+
+      &.changed{
+        background-color: $positive;
+      }
+
+      &.changed-add,
+      &.changed-remove{
+        transition: all linear 0.2s;
+      }
     }
   }
 }
