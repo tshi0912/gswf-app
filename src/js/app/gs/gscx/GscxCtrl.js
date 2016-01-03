@@ -50,7 +50,8 @@
 
         $ionicPopover.fromTemplateUrl('js/app/gs/gscx/query-filter.html', {
             scope: $scope,
-            backdropClickToClose: false
+            backdropClickToClose: false,
+            animation: 'slide-in-up'
         }).then(function (popover) {
             vm.filter = popover;
         });

@@ -20,6 +20,7 @@
 
         $ionicPopover.fromTemplateUrl('js/app/gs/nsqd/query-filter.html', {
             scope: $scope,
+            animation: 'slide-in-up',
             backdropClickToClose: false
         }).then(function (popover) {
             vm.filter = popover;
