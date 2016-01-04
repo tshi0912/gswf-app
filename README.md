@@ -76,13 +76,12 @@ ionic.project
 config.xml
 </pre>
 
-In these files, replace the name ```app``` with the name you want to give to your app as follows:
+在这些文件中，将字符串```app```替换为任何你想要给你的应用起的名字:
 
-* in ```ionic.project```: at line 2 ("name": "app"), replace ```app``` with your app name
-* in ```config.xml```: at line 2, replace ```com.ionicframework.app``` with your package name (e.g.
-```com.mycompany.myapp```), and at line 3 replace ```app``` with your app name
+* ```ionic.project```: 第二行 ("name": "app"), 替换 ```app``` 为你的应用名称
+* ```config.xml```: 第二行, 替换 ```com.ionicframework.app``` 为你的应用包名 (例如 ```com.mycompany.myapp```), 并且在第三行替换 ```app``` 为你应用的名称
 
-Finish the installation by entering the following commands:
+输入以下命令完成安装:
 
 <pre>
 npm install
@@ -90,42 +89,38 @@ bower install
 ionic state restore --plugins
 </pre>
 
-Finally, if you want to add Android and/or iOS as a runtime platform, type one or both of the following commands:
+最终, 如果你想要添加Android或iOS的runtime平台支持，输入如下命令:
 
 <pre>
 ionic platform add android
 ionic platform add ios
 </pre>
 
-The project is now ready to run. To run it in a browser, type (I advise to ALWAYS use the ```-c``` option):
+现在项目准备就绪. 如想在浏览器中运行, 输入 (我建议你始终输入 ```-c``` 选项):
 
 <pre>
 ionic serve -c
 </pre>
 
-or any other variation, e.g. (using the "labs" feature, logging to the console, and defaulting to Chrome):
+或者这样, 例如 (使用 "labs" 的功能, 登录控制台, 默认使用chrome浏览器):
 
 <pre>
 ionic serve -l -c --browser google-chrome
 </pre>
 
-Click through the app: try the tabs, menus and so on.
+体验App吧，点击菜单, 标签等等.
 
-If you click the menu item ```log out``` then you will be presented with the login page. In
-development mode this is a 'fake' login page. To log in, simply type an arbitrary email address (can be fake too), and
-for the password type the text ```password```.
 
-***NOTE:*** if, after executing ```ionic serve``` you get a blank page in your browser with the message
-```Error: ENOENT: no such file or directory ... index.html``` then it indicates that the "gulp-inject" process wasn't
-able to create an index.html file from the index-template.html file.
+***注意:*** 如果执行 ```ionic serve``` 时你看到一个空白页面，并带有
+```Error: ENOENT: no such file or directory ... index.html``` 者通常表示 "gulp-inject" 进程没能从index-template.html模板创建index.html.
 
-In this happens, I would advise you to run "ionic serve" with the arguments '-l' and '-c', so:
+如果遇到这个错误，我建议你运行"ionic serve"，并带上参数 '-l' 和 '-c', 如下所示：
 
 <pre>
 ionic serve -l -c
 </pre>
 
-In some cases, the addition of "-l" in itself seems to be already enough to fix the problem (not sure about this).
+在某些情况下，"-l"参数本身就能提供足够的信息辅助修正该问题.
 
 However if the problem remains, then look at the messages in your console (terminal) window, which were enabled through
 the "-c" argument. Normally you should see an error message/stacktrace in the terminal/console which should tell you
