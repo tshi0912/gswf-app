@@ -122,51 +122,45 @@ ionic serve -l -c
 
 在某些情况下，"-l"参数本身就能提供足够的信息辅助修正该问题.
 
-However if the problem remains, then look at the messages in your console (terminal) window, which were enabled through
-the "-c" argument. Normally you should see an error message/stacktrace in the terminal/console which should tell you
-what is going wrong.
+如果问题仍然解决不了，仔细查看控制台通过"-c"参数打出的消息。一般而言，你应该能看到错误消息的堆栈信息.
 
-One possible cause for the above error seems to be the ```libsass bindings not found``` error which was discussed
-above. However as said above this error **SHOULD** not occur anymore since I've upgraded the ```gulp-sass``` version.
+上述问题一种非常可能的原因是 ```libsass bindings not found``` 错误。然而该错误不应该再发生了，因为```gulp-sass```的版本已经更新至最新版。
 
-### Some notes on usage
+### 使用注意事项
 
-I've set up the gulp file and the starter app in such a way that there are essentially 3 distinct 'modes':
+本样例为使用gulp设置了3中模式：
 
-* 'development' mode which is what you use when running "ionic serve" (running in the browser)
-* 'test' mode: used when you run 'gulp test' or 'karma start'
-* 'production' mode which is what you use with "gulp build" and "ionic run" (running on a device)
+* 'development' 模式：即通过运行 "ionic serve" (在浏览器上模拟运行)进入的模式
+* 'test' 模式: 当运行 'gulp test' 或 'karma start' 进入的模式
+* 'production' 模式：即通过运行 "gulp build" 和 "ionic run" (在设备商运行)进入的模式
 
-As I've currently set it up, these modes are quite different.
+这三种模式之间还是有很大的区别的.
 
-#### Development mode
+#### Development 模式
 
-In development mode, the gulp build process is simple: no minification, concatenation etc.
+在development模式中, gulp编译进程非常简单: 没有合并、没有压缩.
 
-By default, in development mode, the various services (signup, login etc) use a "mock" implementation with fake data
-(but you can easily override this through configuration parameters).
+默认情况下, 在development模式下, 各类不同的服务 (注册, 登录等等) 使用的是一个基于假数据的 "mock" 实现。(但是你可以通过配置参数很简单的覆盖这一实现).
 
-To define configuration parameters for development mode, add them to ```src/js/config/config-dev.json```.
-The ```gulp``` build process will write these values to ```src/js/config/config.js```.
+为了定义development模式下的参数，可以去 ```src/js/config/config-dev.json```中添加。
+```gulp``` 构建进程将会把这些配置参数写进 ```src/js/config/config.js```。
 
-#### Production mode
+#### Production 模式
 
-In production mode (used on a real device), the gulp build process does a complete build including minification,
-concatenation etc, and the app runs with 'real' services.
+在production模式中 (在设备上使用), gulp 构建进程将会执行一个完整的构建，其中包括压缩，合并资源等等，并且应用是跑在真实设备上的.
 
-(e.g. the Parse service for signup/login, but you can replace this with an implementation of your own)
+(例如，用于登录/注册的 SessionsService, 你完成可以替换成一个你自己想要的类)
 
-To define configuration parameters for development mode, add them to ```src/js/config/config-prod.json```.
-The ```gulp``` build process will write these values to ```src/js/config/config.js```.
+为了定义development模式下的参数，可以去 ```src/js/config/config-prod.json```中添加.
+```gulp``` 构建进程将会把这些配置参数写进 ```src/js/config/config.js```。
 
-#### Test mode
+#### Test 模式
 
-Test mode (karma/jasmine) also uses the 'lightweight' build process and 'mock' services.
+Test 模式 (karma/jasmine) 使用的是'轻量级'的构建过程和'mock'服务.
 
-We also support end-to-end (E2E) testing, see [here](https://github.com/leob/ionic-quickstarter/wiki/E2E-Testing) for
-details.
+该样例同时也支持端到端 (E2E)的测试, 详细请见 [这里](https://github.com/leob/ionic-quickstarter/wiki/E2E-Testing).
 
-For more details on configuring and using development, test and production mode, see the
+关于配置和使用development, test 和 production 模式的更多细节, 请参考
 [Wiki](https://github.com/leob/ionic-quickstarter/wiki).
 
 #### A note about "ionic upload" and the Ionic View app
