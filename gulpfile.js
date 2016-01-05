@@ -307,7 +307,7 @@ gulp.task('ioconfig', function () {
     var end =  '; return { get: function(setting) { if (settings[setting]) { return settings[setting]; } return null; } };"IONIC_SETTINGS_STRING_END"';
     var replaceBy = start + ioconfig + end;
 
-    log('inject .io-config in ionic.io.bundle.js');
+    console.log('inject .io-config in ionic.io.bundle.js');
     gulp.src(src)
         .pipe(replace(/"IONIC_SETTINGS_STRING_START.*IONIC_SETTINGS_STRING_END"/, replaceBy))
         .pipe(gulp.dest(paths.ioconfig[0]));
