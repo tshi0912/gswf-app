@@ -18,7 +18,7 @@
 
         $ionicConfigProvider.navBar.alignTitle('center');
         $ionicConfigProvider.tabs.style('standard').position('bottom');
-        //$ionicConfigProvider.views.forwardCache(true);
+        $ionicConfigProvider.views.forwardCache(true);
         $ionicConfigProvider.backButton.text('返回').icon('ion-ios-arrow-left').previousTitleText(false);
 
         $httpProvider.interceptors.push('httpInterceptor');
